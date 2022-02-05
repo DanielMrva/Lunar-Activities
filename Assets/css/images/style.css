@@ -1,0 +1,8 @@
+/* This is the styling for MOONR8KER and other larger headings */
+h1 {
+    font-size: 40px;
+    color: rgb(60, 64, 41);
+    text-align: center;
+    margin: 0 7;
+    font-family: font-family: 'Notable', sans-serif;;
+}
