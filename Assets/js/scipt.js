@@ -42,53 +42,59 @@
 console.log("Greetings from Cthulhu");
 console.log("^(;,;)^");
 
-let moonPhase = [
-    {
-        phase: "new moon",
-        mood: "new beginnings",
-        activity: [],
-    },
-    {   
-        phase: "waxing crescent",
-        mood: "set intetnions",
-        activity: [],
-    },
-    {
-        phase: "first quarter",
-        mood: "take action",
-        activity: [],
-    },
-    {
-        phase: "waxing gibbous",
-        mood: "Refine and hone",
-        activity: [],
-    },
-    {
-        phase: "full",
-        mood: "Harvest Endeavors",
-        activity: [],
-    },
-    {
-        phase: "waning gibbous",
-        mood: "introspect",
-        activity: [],
-    },
-    {
-        phase: "third quarter",
-        mood: "relase and let go",
-        activity: [],
-    },
-    {
-        phase: "waning crescent",
-        mood: "surrender",
-        activity: [],
-    }
-];
+// let moonPhase = [
+//     {
+//         phase: "new moon",
+//         mood: "new beginnings",
+//         activity: [],
+//     },
+//     {   
+//         phase: "waxing crescent",
+//         mood: "set intetnions",
+//         activity: [],
+//     },
+//     {
+//         phase: "first quarter",
+//         mood: "take action",
+//         activity: [],
+//     },
+//     {
+//         phase: "waxing gibbous",
+//         mood: "Refine and hone",
+//         activity: [],
+//     },
+//     {
+//         phase: "full",
+//         mood: "Harvest Endeavors",
+//         activity: [],
+//     },
+//     {
+//         phase: "waning gibbous",
+//         mood: "introspect",
+//         activity: [],
+//     },
+//     {
+//         phase: "third quarter",
+//         mood: "relase and let go",
+//         activity: [],
+//     },
+//     {
+//         phase: "waning crescent",
+//         mood: "surrender",
+//         activity: [],
+//     }
+// ];
 
 
 var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=hourly,daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
 var boredUrl = "https://www.boredapi.com/api/activity?"
+
+let activityObject = {
+    date: "",
+    activity: "",
+    phaseName: "",
+}
 
 fetch(weatherUrl)
     .then(function(response) {
@@ -98,7 +104,9 @@ fetch(weatherUrl)
     .then(function (weatherData) {
         // console.log(weatherData)
 
-        var phase = weatherData.daily[0].moon_phase
+        var phase = weatherData.daily[0].moon_phase;
+        var dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
+        
 
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
@@ -147,6 +155,10 @@ fetch(weatherUrl)
         }
 
         console.log(`the moon data is ${phase} which makes the phase ${mPhase}`)
+        Object.defineProperties(activityObject, {
+            phaseName: {value: mPhase},
+            date: {value: dateNow}
+        });
         boredUrl += type;
         // console.log(type)
         // console.log(boredUrl);
@@ -157,27 +169,16 @@ fetch(weatherUrl)
         })
         .then (function (activityData) {
             console.log(`Your suggested activity is: ${activityData.activity}`);
+            Object.defineProperties(activityObject, {
+                activity: {value: activityData.activity}
+            });
+            console.log(activityObject);
         })
 
     })
-/**
- * get moonphase value between 0 and 1
- * 
- * 
- */
-
-/**
- * save activity, date, moonphase
- * saved activities should go into an array of objects with date, activity, and phaseValue
- * when the save activity button is pressed
- */
 
 
-let activityObject = {
-    date: "",
-    activity: "",
-    phaseValue: "",
-}
+
 
 let savedActivities = [];
 // let storedActivities = [];
