@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOONR8KER</title>
-<!-- Linked font for notable -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Linked font for notable, museomoderno, turret road -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&family=Notable&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+
+<!-- Linked materialize -->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<!--Let browser know website is optimized for mobile from materialize-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- Linked css -->
+<link rel="stylesheet" href="assets/css/style.css"/>
+
+
 </head>
 <body>
     <div id="landing-page">
@@ -19,7 +29,7 @@
                     <a href="#mapped">mapped</a>
                 </li>
                 <li>
-                    <a href="#moonraker">MOONR8KER</a>
+                    <a href="#moonraker"><h1>MOONR8KER</h1></a>
                 </li>
                 <li>
                     <a href="#planning">planning</a>
@@ -27,28 +37,37 @@
             </ul>
         </nav>
 <!-- This will be the hero image on the left side taking up 1/3rd of web viewport -->
-        <img class="left-hero" src="" alt="picture of monochromatic seashells">
-
-        <!-- This will be the container on the right side -->
-        <aside id="right-side-container">
-            <!-- This container holds home info -->
-            <div id="right-side-info"></div>
-                <p class="web-para">
-                    Why does the moon exert such a strong influence? Think of it like this: The moon controls the tides of the ocean, and we are made of 60% water. We can feel its tugs and movement in everyday life.
-                </p>
-                <p class="web-para">
-                    Moon mapping—or the process of deliberately acting in accordance with the moon cycle—can guide our daily decision-making. Each lunar phase is thought to give off a different energy, and we can harness that energy through daily life. Representing beginnings and ends, new moon energy is way different than Full Moon energy.
-                </p>
+        <div class="row">
+            <div class="col s5">
+                <img class="left-hero-image" src="../project1/assets/css/images/sharp-shells-left-hero.jpg" alt="picture of monochromatic seashells">
             </div>
-           <!-- Large moon photo in here -->
-            <img class="left-hero" src="" alt="picture of monochromatic seashells">
 
-            <!-- Button that will allow to begin -->
-            <button>
-                <h2>Begin</h2>
-            </button>
-</aside>
+            <!-- This will be the container on the right side -->
+            <div class="col s7">
+                <aside id="right-side-container">
+                    <!-- This container holds home info -->
+                    <div id="right-side-info">
+                        <p class="web-para">
+                            Why does the moon exert such a strong influence? Think of it like this: The moon controls the tides of the ocean, and we are made of 60% water. We can feel its tugs and movement in everyday life.
+                        </p>
+                        <p class="web-para">
+                            Moon mapping—or the process of deliberately acting in accordance with the moon cycle—can guide our daily decision-making. Each lunar phase is thought to give off a different energy, and we can harness that energy through daily life. Representing beginnings and ends, new moon energy is way different than Full Moon energy.
+                        </p>
+                    </div>
+                    <!-- Large moon photo in here -->
+                    <img class="left-hero" src="../project1/assets/css/images/moon-corrected2.png" alt="large picture of the moon">
+
+                    <!-- Button that will allow to begin -->
+                    <button>
+                        <h2>Begin</h2>
+                    </button>
+                </aside>
+            <!-- ending div for column container -->
+            </div>
+        <!-- ending div for row class -->
+        </div>
     
-    
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.min.js"></script>   
 </body>
 </html>
