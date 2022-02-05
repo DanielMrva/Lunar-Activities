@@ -99,7 +99,8 @@ fetch(weatherUrl)
 
         var phase = weatherData.daily[0].moon_phase
 
-        console.log(phase)
+        console.log("We are pulling current weather data from Chicago.")
+        console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
 
         var mPhase = "";
         var type = "";
@@ -154,7 +155,7 @@ fetch(weatherUrl)
             return response.json();
         })
         .then (function (activityData) {
-            console.log(activityData.activity);
+            console.log(`Your suggested activity is: ${activityData.activity}`);
         })
 
     })
