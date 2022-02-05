@@ -84,3 +84,82 @@ const moonPhase = [
     }
 ];
 
+
+// Al's psuedo code:
+// fetch the weather api to get the moon phase. 
+// if statement to define what activity types are being pulled from 
+
+var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=hourly,daily&appid=e1eb99be58f229feb0f00b803ac936d3`
+
+var boredUrl = "https://www.boredapi.com/api/activity?"
+
+fetch(weatherUrl)
+    .then(function(response) {
+        
+        return response.json();
+    })
+    .then(function (weatherData) {
+        // console.log(weatherData)
+
+        var phase = weatherData.daily[0].moon_phase
+
+        console.log(phase)
+
+        var mPhase = "";
+        var type = "";
+
+        if ((phase === 0) || (phase === 1)) {
+            mPhase = "New";
+            type = "type=education";
+        }
+
+        else if (phase > 0 && phase <= 0.16) {
+            mPhase = "Waxing Crescent";
+            type = "type=busywork&type=education"
+        }
+
+        else if (phase > 0.16 && phase <= 0.33) {
+            mPhase = "First Quarter";
+            type= "type=recreational&type=diy&type=cooking&type=relaxation";
+        }
+
+        else if (phase > 0.33 && phase < 0.5) {
+            mPhase = "Waxing Gibbous";
+            type = "type=recreation&type=ecucation&type=diy";
+        }
+
+        else if (phase === 0.5) {
+            mPhase = "Full";
+            type = "type=social&type=relaxation&type=music";
+        }
+
+        else if (phase > 0.5 && phase <= 0.66) {
+            mPhase = "Waning Gibbous";
+            type = "type=social&type=music&type=charity";
+        }
+
+        else if (phase > 0.66 && phase <= 0.83) {
+            mPhase = "Last Quarter";
+            type = "type=charity"
+        }
+
+        else if (phase > 0.83 && phase < 1) {
+            mPhase = "Waning Crescent"
+            type = "type=recreation";
+        }
+
+        console.log(`the moon data is ${phase} which makes the phase ${mPhase}`)
+        boredUrl += type;
+        // console.log(type)
+        // console.log(boredUrl);
+
+        fetch(boredUrl)
+        .then (function(response) {
+            return response.json();
+        })
+        .then (function (activityData) {
+            console.log(activityData.activity);
+        })
+
+    })
+
