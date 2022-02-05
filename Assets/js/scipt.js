@@ -39,7 +39,8 @@
  * 
  */
 
-console.log("Greetings");
+console.log("Greetings from Cthulhu");
+console.log("^(;,;)^");
 
 let moonPhase = [
     {
