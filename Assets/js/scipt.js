@@ -93,7 +93,7 @@ var boredUrl = "https://www.boredapi.com/api/activity?"
 let activityObject = {
     date: "",
     activity: "",
-    phaseValue: "",
+    phaseName: "",
 }
 
 fetch(weatherUrl)
@@ -104,7 +104,9 @@ fetch(weatherUrl)
     .then(function (weatherData) {
         // console.log(weatherData)
 
-        var phase = weatherData.daily[0].moon_phase
+        var phase = weatherData.daily[0].moon_phase;
+        var dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
+        
 
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
@@ -153,6 +155,10 @@ fetch(weatherUrl)
         }
 
         console.log(`the moon data is ${phase} which makes the phase ${mPhase}`)
+        Object.defineProperties(activityObject, {
+            phaseName: {value: mPhase},
+            date: {value: dateNow}
+        });
         boredUrl += type;
         // console.log(type)
         // console.log(boredUrl);
@@ -163,6 +169,10 @@ fetch(weatherUrl)
         })
         .then (function (activityData) {
             console.log(`Your suggested activity is: ${activityData.activity}`);
+            Object.defineProperties(activityObject, {
+                activity: {value: activityData.activity}
+            });
+            console.log(activityObject);
         })
 
     })
