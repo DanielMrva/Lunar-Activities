@@ -99,7 +99,8 @@ fetch(weatherUrl)
 
         var phase = weatherData.daily[0].moon_phase
 
-        console.log(phase)
+        console.log(234234234)
+        console.log(123123123)
 
         var mPhase = "";
         var type = "";
@@ -158,6 +159,9 @@ fetch(weatherUrl)
         })
 
     })
+
+lalalala
+
 /**
  * get moonphase value between 0 and 1
  * 
