@@ -7,6 +7,7 @@
  * variables for moonphases, activities types, logic for datepickers, 
  * 
  * UI:
+ *  USER - Location?...
  *  USER - Select Date (Default: now) Picker: https://materializecss.com/pickers.html
  *  USER - Select Participants (Dropdown?)
  *  USER - Select Price (Dropdown?)
