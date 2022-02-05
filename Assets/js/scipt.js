@@ -41,13 +41,13 @@
 
 console.log("Greetings");
 
-const moonPhase = [
+let moonPhase = [
     {
         phase: "new moon",
         mood: "new beginnings",
         activity: [],
     },
-    {
+    {   
         phase: "waxing crescent",
         mood: "set intetnions",
         activity: [],
@@ -83,4 +83,56 @@ const moonPhase = [
         activity: [],
     }
 ];
+
+/**
+ * get moonphase value between 0 and 1
+ * 
+ * 
+ */
+
+/**
+ * save activity, date, moonphase
+ * saved activities should go into an array of objects with date, activity, and phaseValue
+ * when the save activity button is pressed
+ */
+
+
+let activityObject = {
+    date: "",
+    activity: "",
+    phaseValue: "",
+}
+
+let savedActivities = [];
+// let storedActivities = [];
+
+function saveActivity() {
+    savedActivities.push(activityObject);
+    localStorage.setItem("activities", JSON.stringify(savedActivities))
+};
+
+function renderActivities() {
+    let storedActivities = JSON.parse(localStorage.getItem("activities"));
+    if (storedActivities !== null) {
+    let savedActivities = [...savedActivities, ...storedActivities]
+    }
+}
+
+let dates = [0, 1, 2, 3, 5, 6, 7, 8, 9];
+
+function generateThings() {
+    for (let index = 0; index < dates.length; index++) {
+        const element = dates[index];
+        Object.defineProperties(activityObject, {
+            date: {value: `date${element}`},
+            activity: {value: `activity${element}`},
+            phaseValue: {value: `phase${element}`}
+        })
+        saveActivity();
+        
+    }
+    console.log(savedActivities);
+}
+renderActivities();
+generateThings();
 
