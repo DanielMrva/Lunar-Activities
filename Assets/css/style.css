@@ -1,0 +1,53 @@
+/* General landing page styling */
+#landing-page {
+    background-color: rgb(239, 230, 194);
+}
+
+
+/* This is the styling for MOONR8KER and other larger headings */
+h1 {
+    display: inline-block;
+    font-size: 40px;
+    color: rgb(60, 64, 41);
+    text-align: center;
+    font-family:'Notable', sans-serif;
+}
+
+
+/* Styling for top navigation bar */
+nav {
+    text-align: center;
+    position: absolute;
+    background-color: none;
+    width: 100%;
+}
+
+nav ul li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 5px;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(60, 64, 41);
+    padding: 7px;
+    font-family: 'Turret Road', cursive;
+}
+
+/* Styling for left side of hero */
+.left-hero-image {
+    display: block;
+    height: auto;
+    width: 753px;
+}
+
+/* Styling for right side of hero */
+#right-side-container {
+    display: block;
+}
+
+p {
+    font-family: 'MuseoModerno', cursive;
+}
