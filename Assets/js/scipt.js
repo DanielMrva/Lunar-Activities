@@ -102,12 +102,12 @@ fetch(weatherUrl)
         return response.json();
     })
     .then(function (weatherData) {
-        console.log(weatherData)
-
-        var phase = weatherData.daily[0].moon_phase;
-        var dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
+        console.log(weatherData);
         
 
+        var phase = weatherData.daily[0].moon_phase;
+        var dateNow = new Date(weatherData.daily[0].moonrise);
+                
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
         
@@ -175,11 +175,41 @@ fetch(weatherUrl)
             });
             console.log(activityObject);
         })
-
+        return weatherData;
     })
 
 
+        
+        
+// function treatAsUTC (date) {
+//     var result = new Date(date);
+//     result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+//     console.log(result);
+//     return result;
+// }
 
+var phasePerDay = 0.0314;
+function daysBetween(datePicked, dateNow) {
+    var secondsPerDay = 24 * 60 * 60;
+    var daysDistance = (datePicked - dateNow) / secondsPerDay;
+    return daysDistance
+}
+console.log("days Between");
+console.log(daysBetween(1644602400, 1644256800))
+
+function phaseAdvanced(daysDistance) {
+    var phasePerDay = 0.03;
+    var currentPhase = daysDistance * phasePerDay;
+    if (currentPhase > 1 || currentPhase !== 0) {
+        while (currentPhase > 1) {
+            currentPhase = currentPhase -1
+        }
+    } else {
+        currentPhase = currentPhase;
+    } return currentPhase
+}
+console.log("Phase value");
+console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
 let savedActivities = [];
 // let storedActivities = [];
@@ -189,28 +219,28 @@ function saveActivity() {
     localStorage.setItem("activities", JSON.stringify(savedActivities))
 };
 
-function renderActivities() {
-    let storedActivities = JSON.parse(localStorage.getItem("activities"));
-    if (storedActivities !== null) {
-    let savedActivities = [...savedActivities, ...storedActivities]
-    }
-}
+// function renderActivities() {
+//     let storedActivities = JSON.parse(localStorage.getItem("activities"));
+//     if (storedActivities !== null) {
+//     let savedActivities = [...savedActivities, ...storedActivities]
+//     }
+// }
 
-let dates = [0, 1, 2, 3, 5, 6, 7, 8, 9];
+// let dates = [0, 1, 2, 3, 5, 6, 7, 8, 9];
 
-function generateThings() {
-    for (let index = 0; index < dates.length; index++) {
-        const element = dates[index];
-        Object.defineProperties(activityObject, {
-            date: {value: `date${element}`},
-            activity: {value: `activity${element}`},
-            phaseValue: {value: `phase${element}`}
-        })
-        saveActivity();
+// function generateThings() {
+//     for (let index = 0; index < dates.length; index++) {
+//         const element = dates[index];
+//         Object.defineProperties(activityObject, {
+//             date: {value: `date${element}`},
+//             activity: {value: `activity${element}`},
+//             phaseValue: {value: `phase${element}`}
+//         })
+//         saveActivity();
         
-    }
-    console.log(savedActivities);
-}
-renderActivities();
-generateThings();
+//     }
+//     console.log(savedActivities);
+// }
+// renderActivities();
+// generateThings();
 
