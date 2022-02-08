@@ -39,6 +39,8 @@
  * 
  */
 
+// moon cycle is 29.53 (according to wiki)
+
 console.log("Greetings from Cthulhu");
 console.log("^(;,;)^");
 
