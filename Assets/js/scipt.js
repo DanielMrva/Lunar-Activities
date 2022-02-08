@@ -104,7 +104,7 @@ fetch(weatherUrl)
         return response.json();
     })
     .then(function (weatherData) {
-        // console.log(weatherData)
+        console.log(weatherData)
 
         var phase = weatherData.daily[0].moon_phase;
         var dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
@@ -112,9 +112,10 @@ fetch(weatherUrl)
 
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
-
+        
         var mPhase = "";
         var type = "";
+        
 
         if ((phase === 0) || (phase === 1)) {
             mPhase = "New";
