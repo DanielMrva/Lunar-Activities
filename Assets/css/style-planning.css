@@ -122,10 +122,8 @@ h2 {
     color: rgb(61, 58, 48);
     font-family: 'Turret Road', cursive;
     font-size: 18px;
-    /* display: block; */
     margin: 0;
     text-align: center;
-    /* width: 300px; */
     padding: 0px 0px;
     color: rgb(239, 230, 194);
 }
@@ -135,12 +133,12 @@ h2 {
     margin: 0;
     padding: 0px 0px;
     color: rgb(239, 230, 194);
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .para-wrapper {
-    width: 550px;
-    /* margin: 20px 250px; */
+    width: 600px;
+    padding: 50px;
     text-align: center;
     display: grid;
     justify-content: center;
@@ -149,10 +147,9 @@ h2 {
 p {
     font-family: 'MuseoModerno', cursive;
     /* display: inline-block; */
-    /* margin: 0px 40px;
-    padding: 15px 0px; */
-    font-size: 10px;
-    text-align: justify;
+    margin: 0px 95px;
+    font-size: 11px;
+    text-align: left;
     padding: 40px;
     color: rgb(239, 230, 194);
 }
