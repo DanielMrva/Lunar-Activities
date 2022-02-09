@@ -181,14 +181,9 @@ fetch(weatherUrl)
 
         
         
-// function treatAsUTC (date) {
-//     var result = new Date(date);
-//     result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
-//     console.log(result);
-//     return result;
-// }
 
-var phasePerDay = 0.0314;
+// This function calculates the number of days between current day and selected day
+
 function daysBetween(datePicked, dateNow) {
     var secondsPerDay = 24 * 60 * 60;
     var daysDistance = (datePicked - dateNow) / secondsPerDay;
@@ -197,9 +192,13 @@ function daysBetween(datePicked, dateNow) {
 console.log("days Between");
 console.log(daysBetween(1644602400, 1644256800))
 
+//This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
+var phasePerDay = 0.0314;
+var nowPhase = weatherData.daily[0].moon_phase;
+
 function phaseAdvanced(daysDistance) {
     var phasePerDay = 0.03;
-    var currentPhase = daysDistance * phasePerDay;
+    var currentPhase = (daysDistance * phasePerDay) + nowPhase;
     if (currentPhase > 1 || currentPhase !== 0) {
         while (currentPhase > 1) {
             currentPhase = currentPhase -1
@@ -211,36 +210,45 @@ function phaseAdvanced(daysDistance) {
 console.log("Phase value");
 console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
+
+//Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
 let savedActivities = [];
 // let storedActivities = [];
 
-function saveActivity() {
-    savedActivities.push(activityObject);
-    localStorage.setItem("activities", JSON.stringify(savedActivities))
-};
+var savedAct = {
+    phase: "",
+    date: "",
+    activity: "",
+}
 
-// function renderActivities() {
-//     let storedActivities = JSON.parse(localStorage.getItem("activities"));
-//     if (storedActivities !== null) {
-//     let savedActivities = [...savedActivities, ...storedActivities]
-//     }
+
+function saveAct(currentPhase, date, activity) {
+    var newSavedAct = Object.create(savedAct);
+    savedAct.phase = futurePhase;
+    savedAct.date = date;
+    savedAct.activity = activity;
+    
+    savedActivities.push(newSavedAct);
+    localStorage.setItem("activities", JSON.stringify(savedActivities));  
+}
+
+function renderActivities() {
+    let storedActivities = JSON.parse(localStorage.getItem("activities"));
+    if (storedActivities !== null) {
+    savedActivities = storedActivities
+    }
+}
+
+
+// var getMoon = function (lat, lon) {
+//     var moonAPI = `
+//     https://mooncalc.org/#/${lat},${lon},zoom/date/time/objectlevel/maptype`;
+//     fetch(moonAPI).then (function (moonResponce) {
+//         if (moonResponce.ok) {
+//             moonResponce.json().then (function (moonData) {
+//                 console.log(moonData);
+//             })
+//         }
+//     })
 // }
-
-// let dates = [0, 1, 2, 3, 5, 6, 7, 8, 9];
-
-// function generateThings() {
-//     for (let index = 0; index < dates.length; index++) {
-//         const element = dates[index];
-//         Object.defineProperties(activityObject, {
-//             date: {value: `date${element}`},
-//             activity: {value: `activity${element}`},
-//             phaseValue: {value: `phase${element}`}
-//         })
-//         saveActivity();
-        
-//     }
-//     console.log(savedActivities);
-// }
-// renderActivities();
-// generateThings();
 
