@@ -177,13 +177,18 @@ fetch(moonPhaseUrl)
 
             };
 
-            savedActivities.unshift(newActivity);
+            if (savedActivities.length <= 10) {
+                savedActivities.unshift(newActivity);
+            } else {savedActivities.pop();
+                    savedActivities.unshift(newActivity);
+            }
+            
             // write if statement to determine length of array.
             // if < 10 unshift the new object
             // if > 10, unshift and pop 
             // this will keep the array to a max of 10 length
 
-            console.log(savedActivities);
+            
 
             console.log(savedActivities);
         })
@@ -192,31 +197,19 @@ fetch(moonPhaseUrl)
 
 }
 
-        
-        
-
-// This function calculates the number of days between current day and selected day
-
-
-// finish writing the function that saves the activities to local storage
-function saveAct(currentPhase, date, activity) {
-    var newSavedAct = Object.create(savedAct);
-    savedAct.phase = futurePhase;
-    savedAct.date = date;
-    savedAct.activity = activity;
-    
-    savedActivities.push(newSavedAct);
+function saveAct() {
     localStorage.setItem("activities", JSON.stringify(savedActivities));  
 }
 
 
 // finish writing function that renders the saved activities to the page. be sure to include a delete/check off button to clear that entry
 // with the delete have it rerun the render function
-function renderActivities() {
+function renderSavedActivities() {
     let storedActivities = JSON.parse(localStorage.getItem("activities"));
     if (storedActivities !== null) {
     savedActivities = storedActivities
     }
+    
 }
 
 // testing a change
