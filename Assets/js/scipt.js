@@ -63,13 +63,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  let startBtn = document.getElementById('start-btn')
+  let startBtn = document.getElementById('go-btn')
 
   startBtn.addEventListener('click', activity)
 
 
   // function that triggers on button press
-  function activity() {
+  function activity(event) {
+
+    event.preventDefault()
+
       console.log(dateEl.value)
 
       let date = dateEl.value;
