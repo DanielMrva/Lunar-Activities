@@ -205,3 +205,31 @@ button {
     padding: 40px;
     color: rgb(239, 230, 194);
 }
+
+.mapped-container {
+    display: flex;
+    height: 100vh;
+}
+
+.mapped-left {
+    flex: 1 0 50%;
+    background-color: slateblue;
+    flex-flow: column;
+    justify-content: center;
+    display: flex;
+}
+
+.crescent-img {
+    display: block;
+    align-content: center;
+    padding: 30px;
+    width: 75vh;
+    height: auto;
+    justify-content: center;
+    
+}
+
+.mapped-right {
+    flex: 1 0 50%;
+    background-color: rosybrown;
+}
