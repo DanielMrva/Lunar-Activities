@@ -44,9 +44,10 @@
             </div>
 
             <!-- This will be the container on the right side -->
-            <div id="right-side-container" class="col s8">
-                    <!-- This container holds home info -->
-                    <div id="right-side-info" class="col s5">
+            <div id="right-side-container">
+                    
+                <!-- This container holds home info -->
+                    <div id="right-side-info" class="col s3">
                         <p class="web-para">
                             Why does the moon exert such a strong influence? Think of it like this: The moon controls the tides of the ocean, and we are made of 60% water. We can feel its tugs and movement in everyday life.
                         </p>
@@ -54,36 +55,20 @@
                             Moon mapping—or the process of deliberately acting in accordance with the moon cycle—can guide our daily decision-making. Each lunar phase is thought to give off a different energy, and we can harness that energy through daily life. Representing beginnings and ends, new moon energy is way different than Full Moon energy.
                         </p>
 
-                    
-                    
+                        <!-- Button that will allow to begin -->
+                        <button id="start-btn">
+                            <div>Begin</div>
+                        </button>
                     </div>
+
                     <!-- Large moon photo in here -->
-                    <img class="left-hero" src="../project1/assets/css/images/moon-corrected2.png" alt="large picture of the moon">
+                    <div id="moon-container">
+                    <img class="hero-moon-image col s5" src="../project1/assets/css/images/moon-corrected2.png" alt="large picture of the moon">
+                </div>
 
-                    <!-- date picker -->
-                    <div class = "container">   
-                        <div class = "row">
-                           <form class = "col s12">
-                              <div class = "row">            <label>Materialize DatePicker</label>              
-                                 <input type = "date" id="date" class = "datepicker" />    
-                              </div>            
-                           </form>       
-                        </div>
-                    </div>   
-
-
-                    <!-- Button that will allow to begin -->
-                    <button id="start-btn">
-                        <h2>Begin</h2>
-                    </button>
-                </aside>
             <!-- ending div for column container -->
             </div>
-
-            <!-- Button that will allow to begin -->
-            <button id="begin">
-                <h1 class="btn-text">Begin</h1>
-            </button>
+            
 
         <!-- ending div for row class -->
         </div>
@@ -104,6 +89,18 @@
                         <p class="p-planning">Today any goals you have made during the past new moon will begin to take shape. During this time, self improvement through action is key. In order to obtain the skills needed to accomplish your goals. an educational or task-driven activity is recommended. The shifts you will experience from this phase will give you a higher chance of retaining information.</p>
                 
                         <h1 class="beginning-text-h1">lets plan an activity with the moon</h1>
+
+                        <!-- date picker -->
+                    <div class = "container-datepicker">   
+                        <div class = "row">
+                           <form class = "col s12">
+                              <div class = "row">
+                                  <label>Materialize DatePicker</label>              
+                                 <input type = "date" id="date" class = "datepicker" />    
+                              </div>            
+                           </form>       
+                        </div>
+                    </div>   
 
                     </div>
                 </div>

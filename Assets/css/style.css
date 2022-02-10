@@ -89,14 +89,20 @@ h1 {
     display: inline-block;
     margin-top: 100px;
     text-align: left;
-    padding: 30px;
+    padding: 0 0 0 150px;
 }
 
 .hero-moon-image {
     display: inline-block;
+    object-fit: cover;
     height: auto;
-    width: 40%;
+    width: 200px;
     margin-top: 100px;
+    padding: 30px;
+}
+
+#moon-container {
+  
 }
 
 p {
@@ -104,7 +110,8 @@ p {
     display: inline-block;
     margin-bottom: 5%;
     font-size: 11px;
-    width: 55%;
+    padding: 5px;
+    align-content: center;
 }
 
 button {
@@ -112,11 +119,16 @@ button {
     border: none;
     background-color:rgb(60, 64, 41);
     position: absolute;
+    height: 140px;
+    width: 140px;
+    top: 575px;
+    left: 675px;
 }
 
-.btn-text {
+#start-btn {
     color:rgb(239, 230, 194);
-
+    font-size: 20px;
+    font-family: 'notable';
 }
 
 .grid-container {
@@ -232,4 +244,8 @@ button {
 .mapped-right {
     flex: 1 0 50%;
     background-color: rosybrown;
+}
+
+.container-datepicker {
+    padding: 20px 0;
 }
