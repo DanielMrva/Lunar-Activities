@@ -90,7 +90,7 @@ console.log("^(;,;)^");
 
 // const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
-let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=${dateUTC}`
+let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=1350526582`
 
 let boredUrl = "https://www.boredapi.com/api/activity?"
 
@@ -220,7 +220,7 @@ fetch(moonPhaseUrl)
             });
             console.log(activityObject);
         })
-        return weatherData;
+        return moonData;
     })
 
 
@@ -238,22 +238,22 @@ console.log("days Between");
 console.log(daysBetween(1644602400, 1644256800))
 
 //This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
-var phasePerDay = 0.0314;
-var nowPhase = weatherData.daily[0].moon_phase;
+// var phasePerDay = 0.0314;
+// var nowPhase = weatherData.daily[0].moon_phase;
 
-function phaseAdvanced(daysDistance) {
-    var phasePerDay = 0.03;
-    var currentPhase = (daysDistance * phasePerDay) + nowPhase;
-    if (currentPhase > 1 || currentPhase !== 0) {
-        while (currentPhase > 1) {
-            currentPhase = currentPhase -1
-        }
-    } else {
-        currentPhase = currentPhase;
-    } return currentPhase
-}
-console.log("Phase value");
-console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
+// function phaseAdvanced(daysDistance) {
+//     var phasePerDay = 0.03;
+//     var currentPhase = (daysDistance * phasePerDay) + nowPhase;
+//     if (currentPhase > 1 || currentPhase !== 0) {
+//         while (currentPhase > 1) {
+//             currentPhase = currentPhase -1
+//         }
+//     } else {
+//         currentPhase = currentPhase;
+//     } return currentPhase
+// }
+// console.log("Phase value");
+// console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
 
 //Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
