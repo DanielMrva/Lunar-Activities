@@ -90,7 +90,10 @@ console.log("^(;,;)^");
 
 // const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
-let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=1350526582`
+
+
+let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=${dateUTC}`
+
 
 let boredUrl = "https://www.boredapi.com/api/activity?"
 
@@ -128,6 +131,13 @@ document.addEventListener('DOMContentLoaded', function() {
       let newDate = date.split('-')
 
       console.log(newDate)
+      let year = newDate[0];
+      let month = newDate[1]
+      let day = newDate[2]
+      let protoDateUTC = new Date(`${year}, ${month}, ${day}`);
+      console.log(protoDateUTC);
+      let dateUTC = (protoDateUTC.getTime() / 1000);
+      console.log(dateUTC);
   }
 
 // calculates days from today to the selected date  
@@ -220,7 +230,9 @@ fetch(moonPhaseUrl)
             });
             console.log(activityObject);
         })
+
         return moonData;
+
     })
 
 
@@ -229,13 +241,13 @@ fetch(moonPhaseUrl)
 
 // This function calculates the number of days between current day and selected day
 
-function daysBetween(datePicked, dateNow) {
-    var secondsPerDay = 24 * 60 * 60;
-    var daysDistance = (datePicked - dateNow) / secondsPerDay;
-    return daysDistance
-}
-console.log("days Between");
-console.log(daysBetween(1644602400, 1644256800))
+// function daysBetween(datePicked, dateNow) {
+//     var secondsPerDay = 24 * 60 * 60;
+//     var daysDistance = (datePicked - dateNow) / secondsPerDay;
+//     return daysDistance
+// };
+// console.log("days Between");
+// console.log(daysBetween(1644602400, 1644256800))
 
 //This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
 // var phasePerDay = 0.0314;
@@ -284,10 +296,21 @@ function renderActivities() {
     }
 }
 
+// var getFarm = function () {
+//     var farmMoon = `https://api.farmsense.net/v1/moonphases/?d=1646100558`;
+//     fetch(farmMoon).then (function (farmResponse) {
+//         if (farmResponse.ok) {
+//             farmResponse.json().then (function (farmData) {
+//                 console.log(farmData);
+//             })
+//         }
+//     })
+// }
 
-// var getMoon = function (lat, lon) {
+// getFarm();
+// var getMoon = function () {
 //     var moonAPI = `
-//     https://mooncalc.org/#/${lat},${lon},zoom/date/time/objectlevel/maptype`;
+//     https://mooncalc.org/#/33.44,94.04,zoom/date/time/objectlevel/maptype`;
 //     fetch(moonAPI).then (function (moonResponce) {
 //         if (moonResponce.ok) {
 //             moonResponce.json().then (function (moonData) {
@@ -296,4 +319,6 @@ function renderActivities() {
 //         }
 //     })
 // }
+
+// getMoon;
 
