@@ -14,44 +14,48 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 <!-- Linked css -->
-<link rel="stylesheet" href="Assets/css/style.css"/>
+<link rel="stylesheet" href="Assets/css/style.css">
 
 </head>
 
 
 <body>
-    <div id="landing-page">
+   
 <!-- Navigation bar on the top that will stay on all pages -->
-        <header>
-            <ul>
-                <li>
-                    <a href="#mapped">mapped</a>
-                </li>
-                <li>
-                    <a href="#moonraker"><h1>MOONR8KER</h1></a>
-                </li>
-                <li>
-                    <a href="#planning">planning</a>
-                </li>
-            </ul>
-        </header>
+    
+    <div class="top-navigation">                
+        <ul>
+            <li>
+                <a href="#mapped"><span class="mapped"><span>mapped</span></a>
+            </li>
+            <li>
+                <a href="#moonraker"><h1>MOONR<span class="logo">8</span>KER</h1></a>
+            </li>
+            <li>
+                <a href="#planning"><span class="planning">planning</span></a>
+            </li>
+        </ul>
+    </div>
+      
         <!-- This will be the hero image on the left side taking up 1/3rd of web viewport -->
         <div class="row">
-            <div class="col s5">
-                <img class="left-hero-image" src="../project1/assets/css/images/sharp-shells-left-hero.jpg" alt="picture of monochromatic seashells">
+            <div class="col s4">
+                <img class="left-hero-shell-image" src="../project1/Assets/css/images/1x/sharp-shells-left-hero-test.png" alt="picture of monochromatic seashells">
             </div>
 
             <!-- This will be the container on the right side -->
-            <div class="col s7">
-                <aside id="right-side-container">
+            <div id="right-side-container" class="col s8">
                     <!-- This container holds home info -->
-                    <div id="right-side-info">
+                    <div id="right-side-info" class="col s5">
                         <p class="web-para">
                             Why does the moon exert such a strong influence? Think of it like this: The moon controls the tides of the ocean, and we are made of 60% water. We can feel its tugs and movement in everyday life.
                         </p>
                         <p class="web-para">
                             Moon mapping—or the process of deliberately acting in accordance with the moon cycle—can guide our daily decision-making. Each lunar phase is thought to give off a different energy, and we can harness that energy through daily life. Representing beginnings and ends, new moon energy is way different than Full Moon energy.
                         </p>
+
+                    
+                    
                     </div>
                     <!-- Large moon photo in here -->
                     <img class="left-hero" src="../project1/assets/css/images/moon-corrected2.png" alt="large picture of the moon">
@@ -75,7 +79,48 @@
                 </aside>
             <!-- ending div for column container -->
             </div>
+
+            <!-- Button that will allow to begin -->
+            <button id="begin">
+                <h1 class="btn-text">Begin</h1>
+            </button>
+
         <!-- ending div for row class -->
+        </div>
+
+        <!-- Starts page below the fold  -->
+        <div class="grid-container">
+            <div class="item item1">
+                <img class="circle-shell-ufo-image" src="../project1/Assets/css/images/1x/circle-shell-ufo.png">
+            </div>
+            <div class="item item2"></div>
+            <div class="item item3">
+                <div id="content-wrapper">
+                    <div class="para-wrapper">
+                        <h2 class="h2-planning">today is monday february the 14th</h2>
+                        
+                        <h1 class="beginning-text-h1">tonights moon phase: waxing crescent</h1>
+                        
+                        <p class="p-planning">Today any goals you have made during the past new moon will begin to take shape. During this time, self improvement through action is key. In order to obtain the skills needed to accomplish your goals. an educational or task-driven activity is recommended. The shifts you will experience from this phase will give you a higher chance of retaining information.</p>
+                
+                        <h1 class="beginning-text-h1">lets plan an activity with the moon</h1>
+
+                    </div>
+                </div>
+            </div> 
+         </div>
+
+        <!-- starts next area -->
+        <div class="mapped-container">
+            <div class="mapped-left">
+                <img class="crescent-img" src="../project1/Assets/css/images/1x/crescent-clouds2.png">
+            </div>
+            <div class="mapped-right">
+
+
+            </div>
+
+
         </div>
     
 <!-- Compiled and minified JavaScript -->
