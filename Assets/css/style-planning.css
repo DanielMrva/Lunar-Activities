@@ -93,6 +93,7 @@ h1 {
     justify-content: flex-start;
     align-self: center;
     display:flex;
+    color: rgb(60, 64, 41);
 }
 
 .planning {
