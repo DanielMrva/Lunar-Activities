@@ -195,7 +195,7 @@ fetch(moonPhaseUrl)
 // This function calculates the number of days between current day and selected day
 
 
-
+// finish writing the function that saves the activities to local storage
 function saveAct(currentPhase, date, activity) {
     var newSavedAct = Object.create(savedAct);
     savedAct.phase = futurePhase;
@@ -206,6 +206,9 @@ function saveAct(currentPhase, date, activity) {
     localStorage.setItem("activities", JSON.stringify(savedActivities));  
 }
 
+
+// finish writing function that renders the saved activities to the page. be sure to include a delete/check off button to clear that entry
+// with the delete have it rerun the render function
 function renderActivities() {
     let storedActivities = JSON.parse(localStorage.getItem("activities"));
     if (storedActivities !== null) {
@@ -213,29 +216,5 @@ function renderActivities() {
     }
 }
 
-// var getFarm = function () {
-//     var farmMoon = `https://api.farmsense.net/v1/moonphases/?d=1646100558`;
-//     fetch(farmMoon).then (function (farmResponse) {
-//         if (farmResponse.ok) {
-//             farmResponse.json().then (function (farmData) {
-//                 console.log(farmData);
-//             })
-//         }
-//     })
-// }
-
-// getFarm();
-// var getMoon = function () {
-//     var moonAPI = `
-//     https://mooncalc.org/#/33.44,94.04,zoom/date/time/objectlevel/maptype`;
-//     fetch(moonAPI).then (function (moonResponce) {
-//         if (moonResponce.ok) {
-//             moonResponce.json().then (function (moonData) {
-//                 console.log(moonData);
-//             })
-//         }
-//     })
-// }
-
-// getMoon;
+// testing a change
 
