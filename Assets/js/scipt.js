@@ -144,17 +144,12 @@ fetch(weatherUrl)
         return response.json();
     })
     .then(function (weatherData) {
-        console.log(weatherData)
-
-        //put daniels function here
-
-        // change the phase to equal the return from the phase calculator
-        let phase = weatherData.daily[0].moon_phase;
-        let dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
-
-        console.log(`dateNow variable: ${dateNow}`)
+        console.log(weatherData);
         
 
+        var phase = weatherData.daily[0].moon_phase;
+        var dateNow = new Date(weatherData.daily[0].moonrise);
+                
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
         
@@ -225,42 +220,80 @@ fetch(weatherUrl)
             });
             console.log(activityObject);
         })
-
+        return weatherData;
     })
 
 
+        
+        
+
+// This function calculates the number of days between current day and selected day
+
+function daysBetween(datePicked, dateNow) {
+    var secondsPerDay = 24 * 60 * 60;
+    var daysDistance = (datePicked - dateNow) / secondsPerDay;
+    return daysDistance
+}
+console.log("days Between");
+console.log(daysBetween(1644602400, 1644256800))
+
+//This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
+var phasePerDay = 0.0314;
+var nowPhase = weatherData.daily[0].moon_phase;
+
+function phaseAdvanced(daysDistance) {
+    var phasePerDay = 0.03;
+    var currentPhase = (daysDistance * phasePerDay) + nowPhase;
+    if (currentPhase > 1 || currentPhase !== 0) {
+        while (currentPhase > 1) {
+            currentPhase = currentPhase -1
+        }
+    } else {
+        currentPhase = currentPhase;
+    } return currentPhase
+}
+console.log("Phase value");
+console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
 
+//Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
 let savedActivities = [];
 // let storedActivities = [];
 
-function saveActivity() {
-    savedActivities.push(activityObject);
-    localStorage.setItem("activities", JSON.stringify(savedActivities))
-};
+var savedAct = {
+    phase: "",
+    date: "",
+    activity: "",
+}
+
+
+function saveAct(currentPhase, date, activity) {
+    var newSavedAct = Object.create(savedAct);
+    savedAct.phase = futurePhase;
+    savedAct.date = date;
+    savedAct.activity = activity;
+    
+    savedActivities.push(newSavedAct);
+    localStorage.setItem("activities", JSON.stringify(savedActivities));  
+}
 
 function renderActivities() {
     let storedActivities = JSON.parse(localStorage.getItem("activities"));
     if (storedActivities !== null) {
-    let savedActivities = [...savedActivities, ...storedActivities]
+    savedActivities = storedActivities
     }
 }
 
-let dates = [0, 1, 2, 3, 5, 6, 7, 8, 9];
 
-function generateThings() {
-    for (let index = 0; index < dates.length; index++) {
-        const element = dates[index];
-        Object.defineProperties(activityObject, {
-            date: {value: `date${element}`},
-            activity: {value: `activity${element}`},
-            phaseValue: {value: `phase${element}`}
-        })
-        saveActivity();
-        
-    }
-    console.log(savedActivities);
-}
-renderActivities();
-generateThings();
+// var getMoon = function (lat, lon) {
+//     var moonAPI = `
+//     https://mooncalc.org/#/${lat},${lon},zoom/date/time/objectlevel/maptype`;
+//     fetch(moonAPI).then (function (moonResponce) {
+//         if (moonResponce.ok) {
+//             moonResponce.json().then (function (moonData) {
+//                 console.log(moonData);
+//             })
+//         }
+//     })
+// }
 
