@@ -167,42 +167,42 @@ fetch(moonPhaseUrl)
         let type = "";
         
         // assigns the activity types to the phase
-        if (phase = 'New') {
+        if (phase === 'New') {
 
             type = "type=education";
         }
 
-        else if (phase = 'Waxing Crescent') {
+        else if (phase === 'Waxing Crescent') {
 
             type = "type=busywork&type=education"
         }
 
-        else if (phase = 'First Quarter') {
+        else if (phase === 'First Quarter') {
             
             type= "type=recreational&type=diy&type=cooking&type=relaxation";
         }
 
-        else if (phase = 'Waxing Gibbous') {
+        else if (phase === 'Waxing Gibbous') {
 
             type = "type=recreation&type=ecucation&type=diy";
         }
 
-        else if (phase = 'Full') {
+        else if (phase === 'Full') {
 
             type = "type=social&type=relaxation&type=music";
         }
 
-        else if (phase = 'Waning Gibbous') {
+        else if (phase === 'Waning Gibbous') {
             
             type = "type=social&type=music&type=charity";
         }
 
-        else if (phase = 'Last Quarter') {
+        else if (phase === 'Last Quarter') {
             
             type = "type=charity"
         }
 
-        else if (phase = 'Waning Crescent') {
+        else if (phase === 'Waning Crescent') {
             
             type = "type=recreation";
         }
@@ -230,7 +230,7 @@ fetch(moonPhaseUrl)
             });
             console.log(activityObject);
         })
-
+        
         return moonData;
 
     })
@@ -270,22 +270,9 @@ fetch(moonPhaseUrl)
 
 //Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
 let savedActivities = [];
-// let storedActivities = [];
 
-var savedAct = {
-    phase: "",
-    date: "",
-    activity: "",
-}
-
-
-function saveAct(currentPhase, date, activity) {
-    var newSavedAct = Object.create(savedAct);
-    savedAct.phase = futurePhase;
-    savedAct.date = date;
-    savedAct.activity = activity;
+function saveAct() {
     
-    savedActivities.push(newSavedAct);
     localStorage.setItem("activities", JSON.stringify(savedActivities));  
 }
 
