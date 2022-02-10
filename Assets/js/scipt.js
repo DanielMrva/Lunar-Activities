@@ -88,15 +88,17 @@ console.log("^(;,;)^");
 // ];
 
 
-const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
+// const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
+
+let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=${dateUTC}`
 
 let boredUrl = "https://www.boredapi.com/api/activity?"
 
-let activityObject = {
+let activityObject = [ { 
     date: "",
     activity: "",
     phaseName: "",
-}
+} ]
 
 //testing
 var today = new Date().toISOString().split('T')[0];
@@ -138,69 +140,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-fetch(weatherUrl)
+fetch(moonPhaseUrl)
     .then(function(response) {
         
         return response.json();
     })
-    .then(function (weatherData) {
-        console.log(weatherData);
+    .then(function (moonData) {
+        console.log(moonData);
         
 
-        var phase = weatherData.daily[0].moon_phase;
-        var dateNow = new Date(weatherData.daily[0].moonrise);
+        var phase = moonData.Phase;
+        // var dateNow = new Date(weatherData.daily[0].moonrise);
                 
-        console.log("We are pulling current weather data from Chicago.")
-        console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
         
-        let mPhase = "";
+        // let mPhase = "";
         let type = "";
         
-        // defines the moon phase based on the data
-        if ((phase === 0) || (phase === 1)) {
-            mPhase = "New";
+        // assigns the activity types to the phase
+        if (phase = 'New') {
+
             type = "type=education";
         }
 
-        else if (phase > 0 && phase <= 0.16) {
-            mPhase = "Waxing Crescent";
+        else if (phase = 'Waxing Crescent') {
+
             type = "type=busywork&type=education"
         }
 
-        else if (phase > 0.16 && phase <= 0.33) {
-            mPhase = "First Quarter";
+        else if (phase = 'First Quarter') {
+            
             type= "type=recreational&type=diy&type=cooking&type=relaxation";
         }
 
-        else if (phase > 0.33 && phase < 0.5) {
-            mPhase = "Waxing Gibbous";
+        else if (phase = 'Waxing Gibbous') {
+
             type = "type=recreation&type=ecucation&type=diy";
         }
 
-        else if (phase === 0.5) {
-            mPhase = "Full";
+        else if (phase = 'Full') {
+
             type = "type=social&type=relaxation&type=music";
         }
 
-        else if (phase > 0.5 && phase <= 0.66) {
-            mPhase = "Waning Gibbous";
+        else if (phase = 'Waning Gibbous') {
+            
             type = "type=social&type=music&type=charity";
         }
 
-        else if (phase > 0.66 && phase <= 0.83) {
-            mPhase = "Last Quarter";
+        else if (phase = 'Last Quarter') {
+            
             type = "type=charity"
         }
 
-        else if (phase > 0.83 && phase < 1) {
-            mPhase = "Waning Crescent"
+        else if (phase = 'Waning Crescent') {
+            
             type = "type=recreation";
         }
 
-        console.log(`the moon data is ${phase} which makes the phase ${mPhase}`)
+        console.log(`the moon phase is ${phase}.`)
         Object.defineProperties(activityObject, {
-            phaseName: {value: mPhase},
-            date: {value: dateNow}
+            phaseName: {value: phase},
+            date: {value: date}
         });
 
         // adds the activities based on the moon phase to the url
