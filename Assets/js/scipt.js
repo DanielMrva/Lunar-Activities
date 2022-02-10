@@ -88,88 +88,131 @@ console.log("^(;,;)^");
 // ];
 
 
-var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=hourly,daily&appid=e1eb99be58f229feb0f00b803ac936d3`
+// const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
-var boredUrl = "https://www.boredapi.com/api/activity?"
+let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=1350526582`
 
-let activityObject = {
+let boredUrl = "https://www.boredapi.com/api/activity?"
+
+let activityObject = [ { 
     date: "",
     activity: "",
     phaseName: "",
-}
+} ]
 
-fetch(weatherUrl)
+//testing
+var today = new Date().toISOString().split('T')[0];
+console.log(today)
+
+// selecting the date element in the DOM
+let dateEl = document.getElementById('date');
+
+// initializing the date picker
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    // var instances = M.Datepicker.init(elems, options);
+  });
+
+
+  let startBtn = document.getElementById('start-btn')
+
+  startBtn.addEventListener('click', activity)
+
+
+  // function that triggers on button press
+  function activity() {
+      console.log(dateEl.value)
+      let date = dateEl.value;
+
+      // splits the date in to an arrray[year, month, day]
+      let newDate = date.split('-')
+
+      console.log(newDate)
+  }
+
+// calculates days from today to the selected date  
+// function dayCalc(day) {
+//     let now = Math.floor(today.getTime() / 1000)
+//     let newDay = Math.floor(day.getTime() / 1000)
+
+//     return (newDay - now);
+// }
+
+
+
+fetch(moonPhaseUrl)
     .then(function(response) {
         
         return response.json();
     })
-    .then(function (weatherData) {
-        console.log(weatherData);
+    .then(function (moonData) {
+        console.log(moonData);
         
 
-        var phase = weatherData.daily[0].moon_phase;
-        var dateNow = new Date(weatherData.daily[0].moonrise);
+        var phase = moonData.Phase;
+        // var dateNow = new Date(weatherData.daily[0].moonrise);
                 
-        console.log("We are pulling current weather data from Chicago.")
-        console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
         
-        var mPhase = "";
-        var type = "";
+        // let mPhase = "";
+        let type = "";
         
+        // assigns the activity types to the phase
+        if (phase = 'New') {
 
-        if ((phase === 0) || (phase === 1)) {
-            mPhase = "New";
             type = "type=education";
         }
 
-        else if (phase > 0 && phase <= 0.16) {
-            mPhase = "Waxing Crescent";
+        else if (phase = 'Waxing Crescent') {
+
             type = "type=busywork&type=education"
         }
 
-        else if (phase > 0.16 && phase <= 0.33) {
-            mPhase = "First Quarter";
+        else if (phase = 'First Quarter') {
+            
             type= "type=recreational&type=diy&type=cooking&type=relaxation";
         }
 
-        else if (phase > 0.33 && phase < 0.5) {
-            mPhase = "Waxing Gibbous";
+        else if (phase = 'Waxing Gibbous') {
+
             type = "type=recreation&type=ecucation&type=diy";
         }
 
-        else if (phase === 0.5) {
-            mPhase = "Full";
+        else if (phase = 'Full') {
+
             type = "type=social&type=relaxation&type=music";
         }
 
-        else if (phase > 0.5 && phase <= 0.66) {
-            mPhase = "Waning Gibbous";
+        else if (phase = 'Waning Gibbous') {
+            
             type = "type=social&type=music&type=charity";
         }
 
-        else if (phase > 0.66 && phase <= 0.83) {
-            mPhase = "Last Quarter";
+        else if (phase = 'Last Quarter') {
+            
             type = "type=charity"
         }
 
-        else if (phase > 0.83 && phase < 1) {
-            mPhase = "Waning Crescent"
+        else if (phase = 'Waning Crescent') {
+            
             type = "type=recreation";
         }
 
-        console.log(`the moon data is ${phase} which makes the phase ${mPhase}`)
+        console.log(`the moon phase is ${phase}.`)
         Object.defineProperties(activityObject, {
-            phaseName: {value: mPhase},
-            date: {value: dateNow}
+            phaseName: {value: phase},
+            date: {value: date}
         });
-        boredUrl += type;
-        // console.log(type)
-        // console.log(boredUrl);
 
+        // adds the activities based on the moon phase to the url
+        boredUrl += type;
+
+        // fetches the activity
         fetch(boredUrl)
         .then (function(response) {
             return response.json();
         })
+
+        // adds the activity to the object
         .then (function (activityData) {
             console.log(`Your suggested activity is: ${activityData.activity}`);
             Object.defineProperties(activityObject, {
@@ -177,7 +220,7 @@ fetch(weatherUrl)
             });
             console.log(activityObject);
         })
-        return weatherData;
+        return moonData;
     })
 
 
@@ -195,22 +238,22 @@ console.log("days Between");
 console.log(daysBetween(1644602400, 1644256800))
 
 //This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
-var phasePerDay = 0.0314;
-var nowPhase = weatherData.daily[0].moon_phase;
+// var phasePerDay = 0.0314;
+// var nowPhase = weatherData.daily[0].moon_phase;
 
-function phaseAdvanced(daysDistance) {
-    var phasePerDay = 0.03;
-    var currentPhase = (daysDistance * phasePerDay) + nowPhase;
-    if (currentPhase > 1 || currentPhase !== 0) {
-        while (currentPhase > 1) {
-            currentPhase = currentPhase -1
-        }
-    } else {
-        currentPhase = currentPhase;
-    } return currentPhase
-}
-console.log("Phase value");
-console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
+// function phaseAdvanced(daysDistance) {
+//     var phasePerDay = 0.03;
+//     var currentPhase = (daysDistance * phasePerDay) + nowPhase;
+//     if (currentPhase > 1 || currentPhase !== 0) {
+//         while (currentPhase > 1) {
+//             currentPhase = currentPhase -1
+//         }
+//     } else {
+//         currentPhase = currentPhase;
+//     } return currentPhase
+// }
+// console.log("Phase value");
+// console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
 
 //Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
