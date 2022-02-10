@@ -178,8 +178,11 @@ fetch(moonPhaseUrl)
                 savedActivities.unshift(newActivity);
             } else {savedActivities.pop();
                     savedActivities.unshift(newActivity);
-            }
-            
+            } 
+            if (savedActivities.length > 0) {  
+                savedActivities.sort((a, b) => {
+                  return a.date - b.date;
+            });
             // write if statement to determine length of array.
             // if < 10 unshift the new object
             // if > 10, unshift and pop 
@@ -211,3 +214,5 @@ function renderSavedActivities() {
 
 // testing a change
 
+// redner cards from saved activities.
+//sort 
