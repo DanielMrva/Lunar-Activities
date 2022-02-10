@@ -190,27 +190,27 @@ function daysBetween(datePicked, dateNow) {
     var secondsPerDay = 24 * 60 * 60;
     var daysDistance = (datePicked - dateNow) / secondsPerDay;
     return daysDistance
-}
+};
 console.log("days Between");
 console.log(daysBetween(1644602400, 1644256800))
 
 //This function advances the phase based on an estimated "phasePerDay" and the current nowPhase.  Consider modifying the check to see if we can pull phase from the weather app first (if datePicked <= dateNow + (7 days of UTC seconds))
-var phasePerDay = 0.0314;
-var nowPhase = weatherData.daily[0].moon_phase;
+// var phasePerDay = 0.0314;
+// var nowPhase = weatherData.daily[0].moon_phase;
 
-function phaseAdvanced(daysDistance) {
-    var phasePerDay = 0.03;
-    var currentPhase = (daysDistance * phasePerDay) + nowPhase;
-    if (currentPhase > 1 || currentPhase !== 0) {
-        while (currentPhase > 1) {
-            currentPhase = currentPhase -1
-        }
-    } else {
-        currentPhase = currentPhase;
-    } return currentPhase
-}
-console.log("Phase value");
-console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
+// function phaseAdvanced(daysDistance) {
+//     var phasePerDay = 0.03;
+//     var currentPhase = (daysDistance * phasePerDay) + nowPhase;
+//     if (currentPhase > 1 || currentPhase !== 0) {
+//         while (currentPhase > 1) {
+//             currentPhase = currentPhase -1
+//         }
+//     } else {
+//         currentPhase = currentPhase;
+//     } return currentPhase
+// }
+// console.log("Phase value");
+// console.log(phaseAdvanced(daysBetween(1644602400, 1644256800)));
 
 
 //Basics of saving activities to local storage.  Each activity will be put in an object with date, phase and activity, and then pushed to a saved activities array.
@@ -241,10 +241,21 @@ function renderActivities() {
     }
 }
 
+// var getFarm = function () {
+//     var farmMoon = `https://api.farmsense.net/v1/moonphases/?d=1646100558`;
+//     fetch(farmMoon).then (function (farmResponse) {
+//         if (farmResponse.ok) {
+//             farmResponse.json().then (function (farmData) {
+//                 console.log(farmData);
+//             })
+//         }
+//     })
+// }
 
-// var getMoon = function (lat, lon) {
+getFarm();
+// var getMoon = function () {
 //     var moonAPI = `
-//     https://mooncalc.org/#/${lat},${lon},zoom/date/time/objectlevel/maptype`;
+//     https://mooncalc.org/#/33.44,94.04,zoom/date/time/objectlevel/maptype`;
 //     fetch(moonAPI).then (function (moonResponce) {
 //         if (moonResponce.ok) {
 //             moonResponce.json().then (function (moonData) {
@@ -253,4 +264,6 @@ function renderActivities() {
 //         }
 //     })
 // }
+
+// getMoon;
 
