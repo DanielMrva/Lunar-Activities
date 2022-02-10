@@ -88,15 +88,55 @@ console.log("^(;,;)^");
 // ];
 
 
-var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=hourly,daily&appid=e1eb99be58f229feb0f00b803ac936d3`
+const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
-var boredUrl = "https://www.boredapi.com/api/activity?"
+let boredUrl = "https://www.boredapi.com/api/activity?"
 
 let activityObject = {
     date: "",
     activity: "",
     phaseName: "",
 }
+
+//testing
+var today = new Date().toISOString().split('T')[0];
+console.log(today)
+
+// selecting the date element in the DOM
+let dateEl = document.getElementById('date');
+
+// initializing the date picker
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    // var instances = M.Datepicker.init(elems, options);
+  });
+
+
+  let startBtn = document.getElementById('start-btn')
+
+  startBtn.addEventListener('click', activity)
+
+
+  // function that triggers on button press
+  function activity() {
+      console.log(dateEl.value)
+      let date = dateEl.value;
+
+      // splits the date in to an arrray[year, month, day]
+      let newDate = date.split('-')
+
+      console.log(newDate)
+  }
+
+// calculates days from today to the selected date  
+// function dayCalc(day) {
+//     let now = Math.floor(today.getTime() / 1000)
+//     let newDay = Math.floor(day.getTime() / 1000)
+
+//     return (newDay - now);
+// }
+
+
 
 fetch(weatherUrl)
     .then(function(response) {
@@ -106,17 +146,22 @@ fetch(weatherUrl)
     .then(function (weatherData) {
         console.log(weatherData)
 
-        var phase = weatherData.daily[0].moon_phase;
-        var dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
+        //put daniels function here
+
+        // change the phase to equal the return from the phase calculator
+        let phase = weatherData.daily[0].moon_phase;
+        let dateNow = new Date(weatherData.daily[0].dt * 1000).toDateString();
+
+        console.log(`dateNow variable: ${dateNow}`)
         
 
         console.log("We are pulling current weather data from Chicago.")
         console.log("Since the moon phase doesn't change based on location, this shouldn't matter.")
         
-        var mPhase = "";
-        var type = "";
+        let mPhase = "";
+        let type = "";
         
-
+        // defines the moon phase based on the data
         if ((phase === 0) || (phase === 1)) {
             mPhase = "New";
             type = "type=education";
@@ -162,14 +207,17 @@ fetch(weatherUrl)
             phaseName: {value: mPhase},
             date: {value: dateNow}
         });
-        boredUrl += type;
-        // console.log(type)
-        // console.log(boredUrl);
 
+        // adds the activities based on the moon phase to the url
+        boredUrl += type;
+
+        // fetches the activity
         fetch(boredUrl)
         .then (function(response) {
             return response.json();
         })
+
+        // adds the activity to the object
         .then (function (activityData) {
             console.log(`Your suggested activity is: ${activityData.activity}`);
             Object.defineProperties(activityObject, {
