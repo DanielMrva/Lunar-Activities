@@ -198,6 +198,9 @@ function saveAct() {
     localStorage.setItem("activities", JSON.stringify(savedActivities));  
 }
 
+
+// finish writing function that renders the saved activities to the page. be sure to include a delete/check off button to clear that entry
+// with the delete have it rerun the render function
 function renderActivities() {
     let storedActivities = JSON.parse(localStorage.getItem("activities"));
     if (storedActivities !== null) {
@@ -205,3 +208,6 @@ function renderActivities() {
     }
     
 }
+
+// testing a change
+
