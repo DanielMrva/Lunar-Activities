@@ -90,12 +90,10 @@ console.log("^(;,;)^");
 
 // const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&include=daily&appid=e1eb99be58f229feb0f00b803ac936d3`
 
-let dateUTC = 1646100558;
-// let dateUTC = new Date(2022-02-10);
 
-// console.log(dateUTC2);
 
 let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=${dateUTC}`
+
 
 let boredUrl = "https://www.boredapi.com/api/activity?"
 
@@ -232,7 +230,9 @@ fetch(moonPhaseUrl)
             });
             console.log(activityObject);
         })
-        // return weatherData;
+
+        return moonData;
+
     })
 
 
