@@ -183,7 +183,7 @@ p {
     align-content: center;
 }
 
-.h2-planning {
+#h2-planning {
     text-decoration: none;
     color: rgb(61, 58, 48);
     font-family: 'Turret Road', cursive;
@@ -194,7 +194,15 @@ p {
     color: rgb(239, 230, 194);
 }
 
-.beginning-text-h1 {
+#beginning-text-h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0px 0px;
+    color: rgb(239, 230, 194);
+    font-size: 28px;
+}
+
+#lets-plan {
     text-align: center;
     margin: 0;
     padding: 0px 0px;
@@ -210,7 +218,7 @@ p {
     justify-content: center;
 }
 
-.p-planning {
+#p-planning {
     font-family: 'MuseoModerno', cursive;
     /* display: inline-block; */
     margin: 0px 95px;
