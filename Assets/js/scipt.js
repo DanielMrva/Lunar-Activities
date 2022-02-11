@@ -185,7 +185,8 @@ fetch(moonPhaseUrl)
             if (savedActivities.length > 0) {  
                 savedActivities.sort((a, b) => {
                   return a.date - b.date;
-            });
+                })
+            }
             // write if statement to determine length of array.
             // if < 10 unshift the new object
             // if > 10, unshift and pop 
@@ -195,8 +196,8 @@ fetch(moonPhaseUrl)
 
             console.log(savedActivities);
         })
-        
-})
+            
+    })
 
 }
 
