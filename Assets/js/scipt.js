@@ -301,11 +301,13 @@ function renderSavedActivities() {
         let newDeleteBtn = document.createElement("button");
         newActionDiv.append(newDeleteBtn);
         newDeleteBtn.innerText = "Delete";
+        newDeleteBtn.dataset.date = `${savedItem.date}`
         let cardClassList = ["card", "card-background"];
         for (let cardInd = 0; cardInd < cardClassList.length; cardInd++) {
             const addClass = cardClassList[cardInd];
             newCard.classList.add(addClass);
         };
+        newCard.id = `${savedItem.date}`
         // let imgContCList = ["card-image"];
         // for (let icInd = 0; icInd < imgContCList.length; icInd++) {
         //     const addClass = imgContCList[icInd];
@@ -336,6 +338,9 @@ document.addEventListener('click', function (e) {
     e.preventDefault()
     if (e.target.classList.contains("dButt")) {
     console.log(`You touched dButt`);
+    let deleteNumber = e.target.dataset.date;
+    let deleteTarget = document.getElementById(deleteNumber)
+    clearCards(deleteTarget)
     // var namedBtn = e.target.parent;
     // clearCards(namedBtn);
     }
