@@ -235,14 +235,12 @@ fetch(moonPhaseUrl)
                   return a.date - b.date;
                 })
             }
-            // write if statement to determine length of array.
-            // if < 10 unshift the new object
-            // if > 10, unshift and pop 
-            // this will keep the array to a max of 10 length
-
-            
+                      
 
             console.log(savedActivities);
+            saveAct();
+            renderSavedActivities();
+            clearCards(savedCardContainer);
         })
             
     })
@@ -253,6 +251,13 @@ function saveAct() {
     localStorage.setItem("activities", JSON.stringify(savedActivities));  
 }
 
+function clearCards(x) {
+    while (x.firstChild) {
+        x.removeChild(x.firstChild);
+        console.log("element removed");
+    };
+}
+
 
 // finish writing function that renders the saved activities to the page. be sure to include a delete/check off button to clear that entry
 // with the delete have it rerun the render function
@@ -261,10 +266,78 @@ function renderSavedActivities() {
     if (storedActivities !== null) {
     savedActivities = storedActivities
     }
+    for (let index = 0; index < savedActivities.length; index++) {
+        const savedItem = savedActivities[index];
+        console.log(savedItem);
+        let savedCardContainer = document.getElementById("savedCards");
+        let cardOuter = document.createElement("div")
+        savedCardContainer.append(cardOuter);
+        let coClass = ["col", "s12", "m6"];
+        for (let coInd = 0; coInd < coClass.length; coInd++) {
+            const addClass = coClass[coInd];
+            cardOuter.classList.add(addClass);
+        }
+        let newCard = document.createElement("div");
+        cardOuter.append(newCard);
+        // let newImgCont = document.createElement("figure");
+        // newCard.append(newImgCont);
+        // let newImg = document.createElement("img");
+        // newImgCont.append(newImg);
+        let cardTitle = document.createElement("span")
+        newCard.append(cardTitle);
+        let newTextCont = document.createElement("ul")
+        newCard.append(newTextCont);
+        let newDateEl = document.createElement("li");
+        newTextCont.append(newDateEl);
+        newDateEl.classList.add("card-li");
+        let newPhase = document.createElement("li");
+        newTextCont.append(newPhase);
+        newPhase.classList.add("card-li");
+        let newActText = document.createElement("p");
+        newCard.append(newActText);
+        let newActionDiv = document.createElement("div");
+        newCard.append(newActionDiv);
+        newActionDiv.classList.add("center-align")
+        let newDeleteBtn = document.createElement("button");
+        newActionDiv.append(newDeleteBtn);
+        newDeleteBtn.innerText = "Delete";
+        let cardClassList = ["card", "card-background"];
+        for (let cardInd = 0; cardInd < cardClassList.length; cardInd++) {
+            const addClass = cardClassList[cardInd];
+            newCard.classList.add(addClass);
+        };
+        // let imgContCList = ["card-image"];
+        // for (let icInd = 0; icInd < imgContCList.length; icInd++) {
+        //     const addClass = imgContCList[icInd];
+        //     newImgCont.classList.add(addClass);
+        // }
+        let cardTitleCList = ["card-title"];
+        for (let ctInd = 0; ctInd < cardTitleCList.length; ctInd++) {
+            const addClass = cardTitleCList[ctInd];
+            cardTitle.classList.add(addClass);
+        }   
+        // newImg.setAttribute("src", "https://picsum.photos/50/100");
+        newTextCont.classList.add(`card${index}`);
+        let newDate = new Date((savedItem.date) * 1000).toDateString();
+        newDateEl.innerText = newDate;
+        newPhase.innerText = savedItem.phaseName;
+        newActText.innerText = savedItem.activity;
+        var newDelBtnCList = ["btn", "waves-effect", "waves-light", "button-color", "dButt"];
+        for (let nDBInd = 0; nDBInd < newDelBtnCList.length; nDBInd++) {
+            const newDelBtnClass = newDelBtnCList[nDBInd];
+            newDeleteBtn.classList.add(newDelBtnClass);    
+        }
     
+    }
 }
+renderSavedActivities();
 
+document.addEventListener('click', function (e) {
+    e.preventDefault()
+    if (e.target.classList.contains("dButt")) {
+    console.log(`You touched dButt`);
+    // var namedBtn = e.target.parent;
+    // clearCards(namedBtn);
+    }
+});
 // testing a change
-
-// redner cards from saved activities.
-//sort 

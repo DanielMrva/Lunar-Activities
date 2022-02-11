@@ -259,3 +259,15 @@ p {
 .container-datepicker {
     padding: 20px 0;
 }
+
+/* .card-li {
+    
+} */
+
+.button-color {
+    background-color:rgb(60, 64, 41);
+}
+
+.card-background {
+    background-color: rgb(239, 230, 194);
+}
