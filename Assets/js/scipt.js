@@ -228,7 +228,7 @@ fetch(moonPhaseUrl)
       
 
 
-            if (savedActivities.length <= 10) {
+            if (savedActivities.length <= 9) {
                 savedActivities.unshift(newActivity);
             } else {savedActivities.pop();
                     savedActivities.unshift(newActivity);
@@ -344,13 +344,13 @@ mappedEl.addEventListener('click', function (e) {
     let deleteTarget = document.getElementById(deleteNumber);
     clearCards(deleteTarget);
     let deleteIndex = savedActivities.findIndex(object => {
-        return object.date === deleteNumber
+        return object.date == deleteNumber
     });
     savedActivities.splice(deleteIndex, 1);
-    console.log(savedActivities);
     saveAct();
     clearCards(savedCardContainer);
     renderSavedActivities();
+    console.log(savedActivities);
     }
 });
 
