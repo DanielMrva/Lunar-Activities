@@ -53,12 +53,15 @@ let boredUrl = "https://www.boredapi.com/api/activity?"
 
 let savedActivities = []
 
+let mappedEl = document.querySelector(".mapped-container");
+let gridEl = document.querySelector(".grid-container");
+let savedCardContainer = document.getElementById("savedCards");
 
 // selecting the date element in the DOM
 let dateEl = document.getElementById('date');
 
 // initializing the date picker
-document.addEventListener('DOMContentLoaded', function() {
+gridEl.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.datepicker');
   });
 
@@ -239,8 +242,8 @@ fetch(moonPhaseUrl)
 
             console.log(savedActivities);
             saveAct();
-            renderSavedActivities();
             clearCards(savedCardContainer);
+            renderSavedActivities();
         })
             
     })
@@ -269,7 +272,6 @@ function renderSavedActivities() {
     for (let index = 0; index < savedActivities.length; index++) {
         const savedItem = savedActivities[index];
         console.log(savedItem);
-        let savedCardContainer = document.getElementById("savedCards");
         let cardOuter = document.createElement("div")
         savedCardContainer.append(cardOuter);
         let coClass = ["col", "s12", "m6"];
@@ -334,15 +336,22 @@ function renderSavedActivities() {
 }
 renderSavedActivities();
 
-document.addEventListener('click', function (e) {
+mappedEl.addEventListener('click', function (e) {
     e.preventDefault()
     if (e.target.classList.contains("dButt")) {
-    console.log(`You touched dButt`);
+    // console.log(`You touched dButt`);
     let deleteNumber = e.target.dataset.date;
-    let deleteTarget = document.getElementById(deleteNumber)
-    clearCards(deleteTarget)
-    // var namedBtn = e.target.parent;
-    // clearCards(namedBtn);
+    let deleteTarget = document.getElementById(deleteNumber);
+    clearCards(deleteTarget);
+    let deleteIndex = savedActivities.findIndex(object => {
+        return object.date === deleteNumber
+    });
+    savedActivities.splice(deleteIndex, 1);
+    console.log(savedActivities);
+    saveAct();
+    clearCards(savedCardContainer);
+    renderSavedActivities();
     }
 });
+
 // testing a change
