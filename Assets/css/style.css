@@ -235,7 +235,7 @@ p {
 
 .mapped-left {
     flex: 1 0 50%;
-    background-color: slateblue;
+    background-color: rgb(239, 230, 194);
     flex-flow: column;
     justify-content: center;
     display: flex;
@@ -253,9 +253,17 @@ p {
 
 .mapped-right {
     flex: 1 0 50%;
-    background-color: rosybrown;
+    background-color:rgb(60, 64, 41);
 }
 
 .container-datepicker {
     padding: 20px 0;
+}
+
+.button-color {
+    background-color:rgb(60, 64, 41);
+}
+
+.card-background {
+    background-color: rgb(239, 230, 194);
 }
