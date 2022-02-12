@@ -246,6 +246,7 @@ p {
     flex-flow: column;
     justify-content: center;
     display: flex;
+    margin-bottom: inherit;
 }
 
 .crescent-img {
@@ -265,6 +266,7 @@ p {
 .mapped-right {
     flex: 1 0 50%;
     background-color:var(--darkgreen);
+    margin-bottom: inherit;
 }
 
 .container-datepicker {
@@ -277,4 +279,8 @@ p {
 
 .card-background {
     background-color: var(--lightyellow);
+}
+
+#bottom-row {
+    margin-bottom: 0px !important;
 }
