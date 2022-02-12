@@ -244,10 +244,14 @@ p {
 .crescent-img {
     display: block;
     align-content: center;
-    padding: 30px;
-    width: 75vh;
+    /* padding: 30px; */
+    /* width: 75vh; */
     height: auto;
     justify-content: center;
+    /* width: fit-content; */
+    overflow: hidden;
+    object-fit: cover;
+    
     
 }
 
