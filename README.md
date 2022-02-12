@@ -3,7 +3,7 @@ View this page at https://danielmrva.github.io/Lunar-Activities/
 
 
 Project Overview:
-MOONR8KER is an application that crosses somewhere between astrology and gravitational science. While it hasn't been studied indepthly, there is a belief that the moon's gravitational pull can have an influence over human behavior. This idea stems from the fact that the moons gravitational pull affects different elements on the earth - the best example being changing tides. 
+MOONR8KER is an application that crosses somewhere between astrology and gravitational science. While it hasn't been studied depthly, there is a belief that the moon's gravitational pull can have an influence over human behavior. This idea stems from the fact that the moons gravitational pull affects different elements on the earth - the best example being changing tides. 
 
 An easy way for us to measure the distance the moon is from us, or the strength of its pull, is by looking at the shape (crescent for example) that the moon exhibits while in the nights sky. 
 
