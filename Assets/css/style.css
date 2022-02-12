@@ -124,8 +124,8 @@ p {
     border-radius: 50%;
     border: none;
     background-color:var(--darkgreen);
-    height: 120px;
-    width: 120px;
+    height: 140px;
+    width: 140px;
     top: 575px;
     left: 675px;
 }
@@ -301,10 +301,12 @@ button {
 }
 
 
-/* @media only screen and (max-width: 1080px) { */
 .card-li {
   font-size: 1.1rem;
   font-weight: bold;
   font-family: 'Turret Road', cursive;
 }
+<<<<<<< HEAD
+=======
   /* } */
+>>>>>>> 1f6e4cfb77993c4e2834956ca163cbac339162d0
