@@ -155,7 +155,7 @@ fetch(moonPhaseUrl)
 
         else if (phase === 'Waning Crescent') {
             
-            type = "type=recreation";
+            type = "type=recreational";
         }
 
         console.log(`the moon phase is ${phase}.`)
