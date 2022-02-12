@@ -64,7 +64,7 @@ fetch(moonPhaseUrl)
         var phase = moonData[0].Phase;
         console.log(`Phase test: ${phase}`)
         
-                
+        // initializes the type variable as an empty string
         let type = "";
         
         // assigns the activity types to the phase
@@ -86,7 +86,7 @@ fetch(moonPhaseUrl)
 
         else if (phase === 'Waxing Gibbous') {
 
-            type = "type=recreation&type=ecucation&type=diy";
+            type = "type=recreational&type=ecucation&type=diy";
         }
 
         else if (phase === 'Full Moon') {
@@ -147,7 +147,7 @@ fetch(moonPhaseUrl)
         const moonPhaseText = document.getElementById('p-planning');
 
         // Renders text onto page about the phase and the activity
-        if (chosenPhaseName == 'Dark Moon') {
+        if (chosenPhaseName == 'New') {
             moonPhaseText.innerText = "The new moon, or the dark moon, is the begining of a new cycle. Breathe fresh air into old projects or start to plot out a new venture. As you begin this cycle, you should focus on furthering your self development through education. Gather as much new information as possible so that you have that knowledge accessible to put to work in the coming phases.";
         
         } else if (chosenPhaseName == 'Waxing Crescent') {
