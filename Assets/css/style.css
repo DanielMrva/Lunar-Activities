@@ -120,9 +120,9 @@ p {
     border-radius: 50%;
     border: none;
     background-color:rgb(60, 64, 41);
-    position: absolute;
-    height: 140px;
-    width: 140px;
+    /* position: absolute; */
+    height: 120px;
+    width: 120px;
     top: 575px;
     left: 675px;
 }
