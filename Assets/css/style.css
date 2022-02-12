@@ -1,3 +1,8 @@
+:root {
+    --lightyellow: rgb(239, 230, 194);
+    --darkgreen: rgb(60, 64, 41);
+}
+
 /* General landing page styling */
 * {
     margin: 0;
@@ -6,7 +11,7 @@
 }
 
 body {
-    background-color: rgb(239, 230, 194);
+    background-color: var(--lightyellow);
 }
 
 /* Styling for top navigation bar */
@@ -16,8 +21,10 @@ body {
     background-color: rgba(0,0,0,0);
     width: 100%;
     position: fixed;
-    background-color: rgb(239, 230, 194);
+    background-color: var(--lightyellow);
+    z-index: 9;
 }
+
 
 ul, ol {
     list-style: none;
@@ -39,7 +46,7 @@ li {
 
 a {
     text-decoration: none;
-    color: rgb(60, 64, 41);
+    color: var(--darkgreen);
     padding: 10px 20px;
     font-family: 'Turret Road', cursive;
     font-size: 18px;
@@ -50,12 +57,12 @@ a {
 h1 {
     display: inline;
     font-size: 22px;
-    color: rgb(60, 64, 41);
+    color: var(--darkgreen);
     text-align: center;
     font-family:'Notable', sans-serif;
 }
 
-.logo {
+.lo  {
     font-family: 'Turret Road';
 }
 .mapped {
@@ -103,10 +110,6 @@ h1 {
     padding: 30px;
 }
 
-#moon-container {
-  
-}
-
 p {
     font-family: 'MuseoModerno', cursive;
     display: inline-block;
@@ -119,7 +122,7 @@ p {
 .start {
     border-radius: 50%;
     border: none;
-    background-color:rgb(60, 64, 41);
+    background-color:var(--darkgreen);
     position: absolute;
     height: 140px;
     width: 140px;
@@ -128,7 +131,7 @@ p {
 }
 
 #start-btn {
-    color:rgb(239, 230, 194);
+    color:var(--lightyellow);
     font-size: 20px;
     font-family: 'notable';
 }
@@ -137,25 +140,25 @@ p {
     display: grid;
     grid-gap: 0px;
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-    background-color: rgb(60, 64, 41);
+    background-color: var(--darkgreen);
   }
 
 .item {
     /* border-style: solid;
-    border-color:rgb(239, 230, 194);
+    border-color:var(--lightyellow);
     background-color:rgb(117, 101, 34); */
     height: 100vh;
 }
 
 .item1 {
     width: 100%;
-    background-color: rgb(239, 230, 194);
+    background-color: var(--lightyellow);
 }
 
 .item2 {
     width: 100%;
     height: 100vh;
-    background-color: rgb(239, 230, 194);
+    background-color: var(--lightyellow);
 }
 
 .item3 {
@@ -177,6 +180,10 @@ p {
     margin-top: 12vh;
 }
 
+#go-btn {
+    font-family: 'Turret Road', cursive;
+}
+
 #content-wrapper {
     display: flex;
     justify-content: center;
@@ -185,20 +192,20 @@ p {
 
 #h2-planning {
     text-decoration: none;
-    color: rgb(61, 58, 48);
+    color: var(--darkgreen);
     font-family: 'Turret Road', cursive;
     font-size: 18px;
     margin: 0;
     text-align: center;
     padding: 0px 0px;
-    color: rgb(239, 230, 194);
+    color: var(--lightyellow);
 }
 
 #beginning-text-h1 {
     text-align: center;
     margin: 0;
     padding: 0px 0px;
-    color: rgb(239, 230, 194);
+    color: var(--lightyellow);
     font-size: 28px;
 }
 
@@ -206,7 +213,7 @@ p {
     text-align: center;
     margin: 0;
     padding: 0px 0px;
-    color: rgb(239, 230, 194);
+    color: var(--lightyellow);
     font-size: 28px;
 }
 
@@ -225,7 +232,7 @@ p {
     font-size: 11px;
     text-align: left;
     padding: 40px;
-    color: rgb(239, 230, 194);
+    color: var(--lightyellow);
 }
 
 .mapped-container {
@@ -235,7 +242,7 @@ p {
 
 .mapped-left {
     flex: 1 0 50%;
-    background-color: slateblue;
+    background-color: var(--lightyellow);
     flex-flow: column;
     justify-content: center;
     display: flex;
@@ -257,9 +264,17 @@ p {
 
 .mapped-right {
     flex: 1 0 50%;
-    background-color: rosybrown;
+    background-color:var(--darkgreen);
 }
 
 .container-datepicker {
     padding: 20px 0;
+}
+
+.button-color {
+    background-color:var(--darkgreen);
+}
+
+.card-background {
+    background-color: var(--lightyellow);
 }
