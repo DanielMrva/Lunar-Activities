@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -131,9 +132,14 @@ p {
 }
 
 #start-btn {
-    color:var(--lightyellow);
     font-size: 20px;
     font-family: 'notable';
+}
+
+#test {
+    color: var(--lightyellow);
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .grid-container {
@@ -182,6 +188,12 @@ p {
 
 #go-btn {
     font-family: 'Turret Road', cursive;
+    background-color: var(--lightyellow);
+    color: var(--darkgreen);
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.5rem;
 }
 
 #content-wrapper {
@@ -277,4 +289,12 @@ p {
 
 .card-background {
     background-color: var(--lightyellow);
+}
+
+#mapped {
+    background-color: var(--darkgreen);
+}
+
+button {
+    font-family: 'Turret Road', cursive;
 }
