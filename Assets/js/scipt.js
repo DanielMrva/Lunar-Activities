@@ -2,7 +2,6 @@
 console.log("Greetings from Cthulhu");
 console.log("^(;,;)^");
 
-
 let boredUrl = "https://www.boredapi.com/api/activity?"
 
 let savedActivities = []
@@ -48,8 +47,6 @@ gridEl.addEventListener('DOMContentLoaded', function() {
 
     getActivity(dateUTC)
   }
-
-
 
 function getActivity (convertedDate) {
 
@@ -211,8 +208,7 @@ function clearCards(x) {
 }
 
 
-// finish writing function that renders the saved activities to the page. be sure to include a delete/check off button to clear that entry
-// with the delete have it rerun the render function
+//function for rendering 
 function renderSavedActivities() {
     let storedActivities = JSON.parse(localStorage.getItem("activities"));
     if (storedActivities !== null) {
@@ -230,10 +226,6 @@ function renderSavedActivities() {
         }
         let newCard = document.createElement("div");
         cardOuter.append(newCard);
-        // let newImgCont = document.createElement("figure");
-        // newCard.append(newImgCont);
-        // let newImg = document.createElement("img");
-        // newImgCont.append(newImg);
         let cardTitle = document.createElement("span")
         newCard.append(cardTitle);
         let newTextCont = document.createElement("ul")
@@ -259,17 +251,11 @@ function renderSavedActivities() {
             newCard.classList.add(addClass);
         };
         newCard.id = `${savedItem.date}`
-        // let imgContCList = ["card-image"];
-        // for (let icInd = 0; icInd < imgContCList.length; icInd++) {
-        //     const addClass = imgContCList[icInd];
-        //     newImgCont.classList.add(addClass);
-        // }
         let cardTitleCList = ["card-title"];
         for (let ctInd = 0; ctInd < cardTitleCList.length; ctInd++) {
             const addClass = cardTitleCList[ctInd];
             cardTitle.classList.add(addClass);
         }   
-        // newImg.setAttribute("src", "https://picsum.photos/50/100");
         newTextCont.classList.add(`card${index}`);
         let newDate = new Date((savedItem.date) * 1000).toDateString();
         newDateEl.innerText = newDate;
@@ -288,7 +274,6 @@ renderSavedActivities();
 mappedEl.addEventListener('click', function (e) {
     e.preventDefault()
     if (e.target.classList.contains("dButt")) {
-    // console.log(`You touched dButt`);
     let deleteNumber = e.target.dataset.date;
     let deleteTarget = document.getElementById(deleteNumber);
     clearCards(deleteTarget);
