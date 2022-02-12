@@ -123,17 +123,10 @@ p {
 .start {
     border-radius: 50%;
     border: none;
-<<<<<<< HEAD
-    background-color:rgb(60, 64, 41);
-    /* position: absolute; */
-    height: 120px;
-    width: 120px;
-=======
     background-color:var(--darkgreen);
     position: absolute;
-    height: 140px;
-    width: 140px;
->>>>>>> 3aad19c3e9737a2c46343fff8c539467a7e4478f
+    height: 120px;
+    width: 120px;
     top: 575px;
     left: 675px;
 }

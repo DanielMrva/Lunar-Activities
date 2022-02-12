@@ -1,0 +1,120 @@
+:root {
+    --lightyellow: rgb(239, 230, 194);
+    --darkgreen: rgb(60, 64, 41);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 105px 172px 10px 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-areas: 
+    "nav nav nav nav nav nav nav nav"
+    "landing-shell landing-shell . landing-para . landing-moon landing-moon landing-moon";
+}
+
+#landing-contianer {
+    height: 100vh;
+}
+
+#top-navigation {
+    grid-area: nav;
+    background-color: var(--lightyellow);
+    height: fit-content;
+}
+
+#landing-shell {
+    grid-area: landing-shell;
+    display: block;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+    padding: 0px;
+}
+
+#landing-para {
+    grid-area: landing-para;
+    margin: 115px 0px 0px 0px;
+    width: 172px;
+}
+
+#landing-moon {
+    grid-area: landing-moon;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 40px 0px 20px;
+}
+
+#top-navigation {
+    
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    /* text-align: center;
+    background-color: rgba(0,0,0,0);
+    position: fixed;
+    background-color: var(--lightyellow);
+    z-index: 9; */
+}
+
+
+ul, ol {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    box-sizing: border-box;
+    height:fit-content;
+}
+
+li {
+    width: 100%;
+    height:fit-content;
+    font-size: 20px;
+    /* padding: 5px 5px; */
+    display: inline-block;
+    justify-content: space-between;
+    box-sizing: border-box;  
+}
+
+a {
+    text-decoration: none;
+    color: var(--darkgreen);
+    padding: 10px 20px;
+    font-family: 'Turret Road', cursive;
+    font-size: 18px;
+    display: block;
+}
+
+/* This is the styling for MOONR8KER and other larger headings */
+h1 {
+    display: inline;
+    font-size: 22px;
+    color: var(--darkgreen);
+    text-align: center;
+    font-family:'Notable', sans-serif;
+}
+
+.lo  {
+    font-family: 'Turret Road';
+}
+.mapped {
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: center;
+    display:flex;
+}
+
+.planning {
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-self: center;
+    display:flex;
+}
+
+p {
+    font-family: 'MuseoModerno', cursive;
+    display: inline-block;
+    font-size: 11px;
+    align-content: center;
+}
