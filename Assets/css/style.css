@@ -257,6 +257,7 @@ p {
     flex-flow: column;
     justify-content: center;
     display: flex;
+    margin-bottom: inherit;
 }
 
 .crescent-img {
@@ -276,6 +277,7 @@ p {
 .mapped-right {
     flex: 1 0 50%;
     background-color:var(--darkgreen);
+    margin-bottom: inherit;
 }
 
 .container-datepicker {
@@ -304,3 +306,7 @@ button {
   font-weight: bold;
   font-family: 'Turret Road', cursive;
 }
+<<<<<<< HEAD
+=======
+  /* } */
+>>>>>>> 1f6e4cfb77993c4e2834956ca163cbac339162d0
