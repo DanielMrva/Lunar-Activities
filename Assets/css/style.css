@@ -124,8 +124,8 @@ p {
     border-radius: 50%;
     border: none;
     background-color:var(--darkgreen);
-    height: 140px;
-    width: 140px;
+    height: 120px;
+    width: 120px;
     top: 575px;
     left: 675px;
 }
