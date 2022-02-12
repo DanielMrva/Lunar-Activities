@@ -300,3 +300,8 @@ p {
 button {
     font-family: 'Turret Road', cursive;
 }
+
+.padding-offset {
+    position: relative;
+    top: -50px;
+}
