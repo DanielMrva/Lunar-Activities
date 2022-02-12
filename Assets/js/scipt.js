@@ -1,52 +1,6 @@
-
-/**
- * Dan's to-do
- * 
- * PSEUDOCODE
- * 
- * variables for moonphases, activities types, logic for datepickers, 
- * 
- * UI:
- *  USER - Location?...
- *  USER - Select Date (Default: now) Picker: https://materializecss.com/pickers.html
- *  USER - Select Participants (Dropdown?)
- *  USER - Select Price (Dropdown?)
- *  USER - Find Activities Button
- *              
- * INIT
- *  Query Local storage for saved activities, then RENDER
- * 
- * FETCH
- *  MoonPhase at Select Date
- *  Return MoonPhase
- *      Returned Moonphase sets activities availbile
- *      Random number to select activity use some sort of weighted bell curve
- *          (Math.floor((Math.random * x) + (Math.random * y)) -1) Maximum sum of x+y-1 should be equal to activitiesArray.length
- *      Return selected activity(s)
- * 
- * FETCH
- *  Bored ?={Participants}&{Price}&{Type}
- * 
- * RENDER
- *  List of datapoints pulled from return of Bored API results
- * 
- * STORE
- *  With button save rendered datapoints to local storage
- *  On same button, add datapoints to an array
- * 
- * 
- * 
- * 
- */
-
 // moon cycle is 29.53 (according to wiki)
 console.log("Greetings from Cthulhu");
 console.log("^(;,;)^");
-
-
-
-
-
 
 
 let boredUrl = "https://www.boredapi.com/api/activity?"
@@ -113,7 +67,7 @@ fetch(moonPhaseUrl)
         var phase = moonData[0].Phase;
         console.log(`Phase test: ${phase}`)
         
-                
+        // initializes the type variable as an empty string
         let type = "";
         
         // assigns the activity types to the phase
@@ -135,7 +89,7 @@ fetch(moonPhaseUrl)
 
         else if (phase === 'Waxing Gibbous') {
 
-            type = "type=recreation&type=ecucation&type=diy";
+            type = "type=recreational&type=ecucation&type=diy";
         }
 
         else if (phase === 'Full Moon') {
@@ -196,7 +150,7 @@ fetch(moonPhaseUrl)
         const moonPhaseText = document.getElementById('p-planning');
 
         // Renders text onto page about the phase and the activity
-        if (chosenPhaseName == 'Dark Moon') {
+        if (chosenPhaseName == 'New') {
             moonPhaseText.innerText = "The new moon, or the dark moon, is the begining of a new cycle. Breathe fresh air into old projects or start to plot out a new venture. As you begin this cycle, you should focus on furthering your self development through education. Gather as much new information as possible so that you have that knowledge accessible to put to work in the coming phases.";
         
         } else if (chosenPhaseName == 'Waxing Crescent') {
