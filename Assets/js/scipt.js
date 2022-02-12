@@ -36,7 +36,7 @@ gridEl.addEventListener('DOMContentLoaded', function() {
 
       // splits the date in to an arrray[year, month, day]
       let newDate = date.split('-')
-
+      
       console.log(newDate)
       let year = newDate[0];
       let month = newDate[1]
@@ -48,6 +48,8 @@ gridEl.addEventListener('DOMContentLoaded', function() {
 
     getActivity(dateUTC)
   }
+
+  let test = new Date();
 
 
 
@@ -74,7 +76,6 @@ fetch(moonPhaseUrl)
         if (phase === 'New') {
 
             type = "type=education";
-
         }
 
         else if (phase === 'Waxing Crescent') {
@@ -104,7 +105,7 @@ fetch(moonPhaseUrl)
 
         else if (phase === 'Last Quarter') {
             
-            type = "type=charity"
+            type = "type=charity";
         }
 
         else if (phase === 'Waning Crescent') {
@@ -177,11 +178,15 @@ fetch(moonPhaseUrl)
         };
 
 
+
             if (savedActivities.length <= 9) {
                 savedActivities.unshift(newActivity);
-            } else {savedActivities.pop();
+
+            } else {
+                    savedActivities.pop();
                     savedActivities.unshift(newActivity);
             } 
+
             if (savedActivities.length > 0) {  
                 savedActivities.sort((a, b) => {
                   return a.date - b.date;
