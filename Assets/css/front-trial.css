@@ -5,11 +5,11 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 105px 172px 10px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 100px 40px 172px 10px 1fr 1fr 1fr;
     /* grid-template-rows: 1fr 1fr; */
     grid-template-areas: 
-    "nav nav nav nav nav nav nav nav"
-    "landing-shell landing-shell . landing-para . landing-moon landing-moon landing-moon";
+    "nav nav nav nav nav nav nav nav nav"
+    "landing-shell landing-shell landing-shell . landing-para . landing-moon landing-moon landing-moon";
 }
 
 #landing-contianer {
@@ -117,4 +117,19 @@ p {
     display: inline-block;
     font-size: 11px;
     align-content: center;
+}
+
+/* This is for smaller screen viewing */
+@media screen and (max-width: 1365px) {
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr 1fr;
+    grid-template-columns: 
+    "nav nav nav nav"
+    "landing-para . ."
+    "landing-moon landing-moon landing-moon landing-moon";
+}
+
 }
