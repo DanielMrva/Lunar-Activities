@@ -223,11 +223,6 @@ fetch(moonPhaseUrl)
         };
 
 
-
-        
-      
-
-
             if (savedActivities.length <= 9) {
                 savedActivities.unshift(newActivity);
             } else {savedActivities.pop();
