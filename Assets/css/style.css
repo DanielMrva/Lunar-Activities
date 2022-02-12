@@ -124,7 +124,6 @@ p {
     border-radius: 50%;
     border: none;
     background-color:var(--darkgreen);
-    position: absolute;
     height: 140px;
     width: 140px;
     top: 575px;
@@ -298,3 +297,12 @@ p {
 button {
     font-family: 'Turret Road', cursive;
 }
+
+
+/* @media only screen and (max-width: 1080px) { */
+.card-li {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Turret Road', cursive;
+}
+  /* } */
