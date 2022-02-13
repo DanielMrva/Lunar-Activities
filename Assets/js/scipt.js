@@ -48,13 +48,10 @@ gridEl.addEventListener('DOMContentLoaded', function() {
     getActivity(dateUTC)
   }
 
-<<<<<<< HEAD
   let test = new Date();
 
 
 
-=======
->>>>>>> 1f6e4cfb77993c4e2834956ca163cbac339162d0
 function getActivity (convertedDate) {
 
     let moonPhaseUrl = `https://api.farmsense.net/v1/moonphases/?d=${convertedDate}`
