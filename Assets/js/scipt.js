@@ -48,7 +48,6 @@ gridEl.addEventListener('DOMContentLoaded', function() {
     getActivity(dateUTC)
   }
 
-  let test = new Date();
 
 
 
