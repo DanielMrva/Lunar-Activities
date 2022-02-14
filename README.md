@@ -24,3 +24,4 @@ The user experience begins at "the landing page". The main design of this page i
 Common themes in this design are circles, shells, and space. There are three main fonts implemented, one for title, one for subheadings, and one for paragraph text. There are also two main colors. Two colors mimic the appearance of the moon having only two colors. The use of minimal typefaces and colors also keeps the design consistent and clean throughout. The navigation bar is helpful to the user but does not include a lot of content to keep a clean airy appearance.
 
 Screenshots Displayed Below:
+![The Page in action](./Assets/css/images/moonr8ker.jpg)
