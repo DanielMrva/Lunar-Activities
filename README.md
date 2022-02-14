@@ -17,6 +17,8 @@ There are three main areas and links to those areas in the nav bar- The main pag
 
 A user can either scroll down or click "planning" in navigation to be brought to an area where they can generate an event. A user will come to this page looking for guidance on what to do during an upcoming date. They will choose a date on a calendar that they want to harness the moons power. Upon selecting a date, the phase of the moon during that time will display, along with a general description of best practices during that time, followed by a random activity.
 
+This activity automatically saves to the mapped section of the website. The mapped area functions similar to a to-do list. It holds all of the activities that the user may want to take part in. These activities will order itself by date, from closest date to farthest date. These activities can also be removed from the section with the delete button.
+
 Interface Design:
 
 The user experience begins at "the landing page". The main design of this page is to feel airy and open- similar to space. Connections are often made between the ocean being unknown and space being unknown. Both can evoke a sense of calm. Therefore, a calm visual design is displayed with the incorporation of sea pictures and space pictures. 
