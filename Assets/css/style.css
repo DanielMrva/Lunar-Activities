@@ -124,8 +124,8 @@ p {
     border-radius: 50%;
     border: none;
     background-color:var(--darkgreen);
-    height: 120px;
-    width: 120px;
+    height: 140px;
+    width: 140px;
     top: 575px;
     left: 675px;
 }
@@ -301,7 +301,6 @@ button {
 }
 
 
-/* @media only screen and (max-width: 1080px) { */
 .card-li {
   font-size: 1.1rem;
   font-weight: bold;
