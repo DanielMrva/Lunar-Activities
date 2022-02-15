@@ -146,7 +146,6 @@ fetch(moonPhaseUrl)
         const moonPhaseText = document.getElementById('p-planning');
 
         const moonIcon = document.getElementById('moon-icons');
-        console.log(moonIcon);
 
 
         // Renders text onto page about the phase and the activity
