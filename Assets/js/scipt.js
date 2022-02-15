@@ -29,21 +29,19 @@ gridEl.addEventListener('DOMContentLoaded', function() {
 
     event.preventDefault()
 
-      console.log(dateEl.value)
-
       let date = dateEl.value;
 
       // splits the date in to an arrray[year, month, day]
       let newDate = date.split('-')
       
-      console.log(newDate)
+
       let year = newDate[0];
       let month = newDate[1]
       let day = newDate[2]
       let protoDateUTC = new Date(`${year}, ${month}, ${day}`);
-      console.log(protoDateUTC);
+
       let dateUTC = (protoDateUTC.getTime() / 1000);
-      console.log(dateUTC);
+
 
     getActivity(dateUTC)
   }
@@ -61,17 +59,17 @@ fetch(moonPhaseUrl)
         return response.json();
     })
     .then(function (moonData) {
-        console.log(moonData);
+
         
 
-        var phase = moonData[0].Phase;
-        console.log(`Phase test: ${phase}`)
+        let phase = moonData[0].Phase;
+
         
         // initializes the type variable as an empty string
         let type = "";
         
         // assigns the activity types to the phase
-        if (phase === 'New') {
+        if (phase === 'Dark Moon') {
 
             type = "type=education";
         }
@@ -81,7 +79,7 @@ fetch(moonPhaseUrl)
             type = "type=busywork&type=education"
         }
 
-        else if (phase === 'First Quarter') {
+        else if (phase === '1st Quarter') {
             
             type= "type=recreational&type=diy&type=cooking&type=relaxation";
         }
@@ -101,7 +99,7 @@ fetch(moonPhaseUrl)
             type = "type=social&type=music&type=charity";
         }
 
-        else if (phase === 'Last Quarter') {
+        else if (phase === '3rd Quarter') {
             
             type = "type=charity";
         }
@@ -111,7 +109,7 @@ fetch(moonPhaseUrl)
             type = "type=recreational";
         }
 
-        console.log(`the moon phase is ${phase}.`)
+
 
 
         // adds the activities based on the moon phase to the url
@@ -125,7 +123,6 @@ fetch(moonPhaseUrl)
 
         // adds the activity to the object
         .then (function (activityData) {
-            console.log(`Your suggested activity is: ${activityData.activity}`);
 
             let newActivity = {
                 date: convertedDate,
@@ -204,7 +201,6 @@ fetch(moonPhaseUrl)
             }
                       
 
-            console.log(savedActivities);
             saveAct();
             clearCards(savedCardContainer);
             renderSavedActivities();
@@ -221,7 +217,6 @@ function saveAct() {
 function clearCards(x) {
     while (x.firstChild) {
         x.removeChild(x.firstChild);
-        console.log("element removed");
     };
 }
 
@@ -234,7 +229,6 @@ function renderSavedActivities() {
     }
     for (let index = 0; index < savedActivities.length; index++) {
         const savedItem = savedActivities[index];
-        console.log(savedItem);
         let cardOuter = document.createElement("div")
         savedCardContainer.append(cardOuter);
         let coClass = ["col", "s12", "m6"];
@@ -302,7 +296,6 @@ mappedEl.addEventListener('click', function (e) {
     saveAct();
     clearCards(savedCardContainer);
     renderSavedActivities();
-    console.log(savedActivities);
     }
 });
 
