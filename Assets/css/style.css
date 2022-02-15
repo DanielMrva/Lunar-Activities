@@ -66,6 +66,7 @@ h1 {
 .lo  {
     font-family: 'Turret Road';
 }
+
 .mapped {
     align-items: flex-start;
     justify-content: flex-start;
@@ -257,7 +258,6 @@ p {
 }
 
 .mapped-left {
-    flex: 1 0 50%;
     background-color: var(--lightyellow);
     flex-flow: column;
     justify-content: center;
@@ -266,49 +266,83 @@ p {
 }
 
 .crescent-img {
+    flex: 1 0 60%;
     display: block;
     align-content: center;
-    /* padding: 30px; */
-    /* width: 75vh; */
-    height: auto;
-    justify-content: center;
-    /* width: fit-content; */
+    width: 550px;
+    justify-self: center;
     overflow: hidden;
-    object-fit: cover;
-    
-    
+    object-fit: cover;    
 }
 
 .mapped-right {
-    flex: 1 0 50%;
-    background-color:var(--darkgreen);
+    flex: 1 0 40%;
+    background-color:var(--lightyellow);
     margin-bottom: inherit;
+    width: 600px;
 }
 
 .container-datepicker {
     padding: 20px 0;
-}
+} 
 
 .button-color {
     background-color:var(--darkgreen);
 }
 
 .card-background {
-    background-color: var(--lightyellow);
+    background-color: rgba(60, 64, 41, 0.3);
 }
 
 #mapped {
-    background-color: var(--darkgreen);
+    background-color: var(--lightyellow);
 }
 
 button {
     font-family: 'Turret Road', cursive;
 }
 
+.card-new {
+    display: block;
+}
+
+.card-ul {
+    list-style: none;
+    text-align: center;
+}
 
 .card-li {
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 12px;
   font-family: 'Turret Road', cursive;
 }
+
+.map-phase {
+    text-align: center;
+    justify-self: center;
+    display: block;
+    margin-bottom: none;
+    font-family: 'Notable', sans-serif;
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.map-activity {
+    text-align: center;
+    justify-self: center;
+    display: block;
+    font-family: 'MuseoModerno', cursive;
+    font-size: 20px;
+    line-height: 21px;
+}
+
+/* p {
+    font-family: 'MuseoModerno', cursive;
+    display: inline-block;
+    margin-bottom: 5%;
+    font-size: 11px;
+    padding: 5px;
+    align-content: center;
+} */
   /* } */
