@@ -29,21 +29,19 @@ gridEl.addEventListener('DOMContentLoaded', function() {
 
     event.preventDefault()
 
-      console.log(dateEl.value)
-
       let date = dateEl.value;
 
       // splits the date in to an arrray[year, month, day]
       let newDate = date.split('-')
       
-      console.log(newDate)
+
       let year = newDate[0];
       let month = newDate[1]
       let day = newDate[2]
       let protoDateUTC = new Date(`${year}, ${month}, ${day}`);
-      console.log(protoDateUTC);
+
       let dateUTC = (protoDateUTC.getTime() / 1000);
-      console.log(dateUTC);
+
 
     getActivity(dateUTC)
   }
@@ -61,17 +59,17 @@ fetch(moonPhaseUrl)
         return response.json();
     })
     .then(function (moonData) {
-        console.log(moonData);
+
         
 
-        var phase = moonData[0].Phase;
-        console.log(`Phase test: ${phase}`)
+        let phase = moonData[0].Phase;
+
         
         // initializes the type variable as an empty string
         let type = "";
         
         // assigns the activity types to the phase
-        if (phase === 'New') {
+        if (phase === 'Dark Moon') {
 
             type = "type=education";
         }
@@ -81,7 +79,7 @@ fetch(moonPhaseUrl)
             type = "type=busywork&type=education"
         }
 
-        else if (phase === 'First Quarter') {
+        else if (phase === '1st Quarter') {
             
             type= "type=recreational&type=diy&type=cooking&type=relaxation";
         }
@@ -101,7 +99,7 @@ fetch(moonPhaseUrl)
             type = "type=social&type=music&type=charity";
         }
 
-        else if (phase === 'Last Quarter') {
+        else if (phase === '3rd Quarter') {
             
             type = "type=charity";
         }
@@ -111,7 +109,7 @@ fetch(moonPhaseUrl)
             type = "type=recreational";
         }
 
-        console.log(`the moon phase is ${phase}.`)
+
 
 
         // adds the activities based on the moon phase to the url
@@ -125,7 +123,6 @@ fetch(moonPhaseUrl)
 
         // adds the activity to the object
         .then (function (activityData) {
-            console.log(`Your suggested activity is: ${activityData.activity}`);
 
             let newActivity = {
                 date: convertedDate,
@@ -149,13 +146,13 @@ fetch(moonPhaseUrl)
         const moonPhaseText = document.getElementById('p-planning');
 
         // Renders text onto page about the phase and the activity
-        if (chosenPhaseName == 'New') {
+        if (chosenPhaseName == 'Dark Moon') {
             moonPhaseText.innerText = "The new moon, or the dark moon, is the begining of a new cycle. Breathe fresh air into old projects or start to plot out a new venture. As you begin this cycle, you should focus on furthering your self development through education. Gather as much new information as possible so that you have that knowledge accessible to put to work in the coming phases.";
         
         } else if (chosenPhaseName == 'Waxing Crescent') {
             moonPhaseText.innerText = "The waxing crescent follows the new moon. It is the second phase of the cycle. As such, you should honor this phase with inner growth through education and list making. Now is the time to catch up on all those small tasks and to get organized. You will be able to retain more information during this time and it is important to focus primarily on yourself.";
         
-        } else if (chosenPhaseName == 'First Quarter') {
+        } else if (chosenPhaseName == '1st Quarter') {
             moonPhaseText.innerText = "Arriving after the waxing crescent, the first Quarter moon is the third phase. Previous phases have focused on inner growth, while this stage allows you to start acting on your new found knowledge. It's time to partake in recreational, productive, and social events. Take the knowledge you have learned and inject it into different activities.";
         
         } else if (chosenPhaseName == 'Waxing Gibbous') {
@@ -167,7 +164,7 @@ fetch(moonPhaseUrl)
         } else if (chosenPhaseName == 'Waning Gibbous') {
             moonPhaseText.innerText = "Following the full moon, the waning gibbous begins the time of winding down. The first phases of the moon focus on inner development, then more on social aspects, and now is the time to give outwardly. Charity and relaxation based activities help to balance you. Meditate on what has brought you to this point through the facilitation of music.";
 
-        } else if (chosenPhaseName == 'Last Quarter') {
+        } else if (chosenPhaseName == '3rd Quarter') {
             moonPhaseText.innerText = "The second to last phase, the last quarter phase is almost like a spring cleaning. This phase follows the waning gibbous, so gratitude through chartiy like activities are encouraged. However, the best ways to harness the moons pull during this time is to partake in those little to-dos as you get yourself organized once again.";
 
         } else if (chosenPhaseName == 'Waning Crescent') {
@@ -192,7 +189,6 @@ fetch(moonPhaseUrl)
             }
                       
 
-            console.log(savedActivities);
             saveAct();
             clearCards(savedCardContainer);
             renderSavedActivities();
@@ -209,7 +205,6 @@ function saveAct() {
 function clearCards(x) {
     while (x.firstChild) {
         x.removeChild(x.firstChild);
-        console.log("element removed");
     };
 }
 
@@ -222,7 +217,6 @@ function renderSavedActivities() {
     }
     for (let index = 0; index < savedActivities.length; index++) {
         const savedItem = savedActivities[index];
-        console.log(savedItem);
         let cardOuter = document.createElement("div")
         savedCardContainer.append(cardOuter);
         let coClass = ["col", "s12", "m6"];
@@ -290,7 +284,6 @@ mappedEl.addEventListener('click', function (e) {
     saveAct();
     clearCards(savedCardContainer);
     renderSavedActivities();
-    console.log(savedActivities);
     }
 });
 
