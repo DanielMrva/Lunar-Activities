@@ -149,9 +149,6 @@ p {
   }
 
 .item {
-    /* border-style: solid;
-    border-color:var(--lightyellow);
-    background-color:rgb(117, 101, 34); */
     height: 100vh;
 }
 
@@ -217,7 +214,7 @@ p {
     margin: 0;
     padding: 0px 0px;
     color: var(--lightyellow);
-    font-size: 28px;
+    font-size: 24px;
 }
 
 #lets-plan {
@@ -225,11 +222,19 @@ p {
     margin: 0;
     padding: 0px 0px;
     color: var(--lightyellow);
-    font-size: 28px;
+    font-size: 23px;
+}
+
+#moon-icons {
+    display: flex;
+    object-fit: contain;
+    margin: 40px 40px 20px 30px;
+    width: 48px;
+    justify-self: center;  
 }
 
 .para-wrapper {
-    width: 600px;
+    width: 620px;
     padding: 50px;
     text-align: center;
     display: grid;
