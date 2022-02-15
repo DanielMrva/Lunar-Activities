@@ -6,7 +6,7 @@ let boredUrl = "https://www.boredapi.com/api/activity?"
 
 let savedActivities = []
 
-let mappedEl = document.querySelector(".mapped-container");
+let mappedEl = document.querySelector(".mapped-right");
 let gridEl = document.querySelector(".grid-container");
 let savedCardContainer = document.getElementById("savedCards");
 
@@ -238,25 +238,37 @@ function renderSavedActivities() {
         }
         let newCard = document.createElement("div");
         cardOuter.append(newCard);
+        newCard.classList.add("card-new");
+
         let cardTitle = document.createElement("span")
         newCard.append(cardTitle);
+
         let newTextCont = document.createElement("ul")
         newCard.append(newTextCont);
+        newTextCont.classList.add("card-ul");
+        
         let newDateEl = document.createElement("li");
         newTextCont.append(newDateEl);
         newDateEl.classList.add("card-li");
-        let newPhase = document.createElement("li");
-        newTextCont.append(newPhase);
-        newPhase.classList.add("card-li");
+
+        let newPhase = document.createElement("p");
+        newCard.append(newPhase);
+        newPhase.classList.add("map-phase");
+
         let newActText = document.createElement("p");
         newCard.append(newActText);
+        newActText.classList.add("map-activity");
+
         let newActionDiv = document.createElement("div");
         newCard.append(newActionDiv);
         newActionDiv.classList.add("center-align")
+
         let newDeleteBtn = document.createElement("button");
         newActionDiv.append(newDeleteBtn);
+        newDeleteBtn.classList.add("delete-btn");
         newDeleteBtn.innerText = "Delete";
-        newDeleteBtn.dataset.date = `${savedItem.date}`
+        newDeleteBtn.dataset.date = `${savedItem.date}`;
+
         let cardClassList = ["card", "card-background"];
         for (let cardInd = 0; cardInd < cardClassList.length; cardInd++) {
             const addClass = cardClassList[cardInd];
