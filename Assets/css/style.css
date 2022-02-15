@@ -302,8 +302,16 @@ button {
     font-family: 'Turret Road', cursive;
 }
 
+.delete-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 156.275px;
+    border-radius: 6px;
+}
+
 .card-new {
     display: block;
+    height: 155px;
 }
 
 .card-ul {
@@ -314,6 +322,8 @@ button {
 .card-li {
   font-size: 12px;
   font-family: 'Turret Road', cursive;
+color:var(--darkgreen);
+
 }
 
 .map-phase {
@@ -322,9 +332,10 @@ button {
     display: block;
     margin-bottom: none;
     font-family: 'Notable', sans-serif;
-    font-size: 21px;
+    font-size: 22px;
     margin: 0;
     padding: 0;
+    color:var(--darkgreen);
 
 }
 
@@ -333,16 +344,10 @@ button {
     justify-self: center;
     display: block;
     font-family: 'MuseoModerno', cursive;
-    font-size: 20px;
-    line-height: 21px;
+    font-size: 18px;
+    line-height: 19px;
+    padding: 0px 3px 0px 3px;
+    color:var(--darkgreen);
 }
 
-/* p {
-    font-family: 'MuseoModerno', cursive;
-    display: inline-block;
-    margin-bottom: 5%;
-    font-size: 11px;
-    padding: 5px;
-    align-content: center;
-} */
   /* } */

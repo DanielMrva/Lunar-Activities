@@ -271,6 +271,7 @@ function renderSavedActivities() {
 
         let newDeleteBtn = document.createElement("button");
         newActionDiv.append(newDeleteBtn);
+        newDeleteBtn.classList.add("delete-btn");
         newDeleteBtn.innerText = "Delete";
         newDeleteBtn.dataset.date = `${savedItem.date}`;
 
