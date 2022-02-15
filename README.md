@@ -3,11 +3,13 @@ View this page at https://danielmrva.github.io/Lunar-Activities/
 
 
 Project Overview:
-MOONR8KER is an application that crosses somewhere between astrology and gravitational science. While it hasn't been studied depthly, there is a belief that the moon's gravitational pull can have an influence over human behavior. This idea stems from the fact that the moons gravitational pull affects different elements on the earth - the best example being changing tides. 
+MOONR8KER is an application that crosses somewhere between astrology and gravitational science. Unlike astrology, instead of deciding behavior based on constellations, we are deciding behavior based on the moon. We know that the moon and it’s gravitational pull has an effect on certain elements here on earth. Something you are probably very familiar with are the changing ocean tides- which are a direct result of the moons gravitational pull. Like oceans, humans are made up of mostly water. Therefore, if the moon has an effect on something as vast as the ocean, we can infer that it is also having an effect on our smalled water based human bodies. Instead of letting the moon shift and move you with no direction, you can learn about it’s patterns and live your life in a way that coincides- rather than fights the moons behavior.
 
-An easy way for us to measure the distance the moon is from us, or the strength of its pull, is by looking at the shape (crescent for example) that the moon exhibits while in the nights sky. 
+Following the moons behavior to plan ones life is often called "moon-mapping". There are a number of resources online about what behavior is appropriate during which phase. 
+To put it simply, this app will help a user who may be interested in harnessing the moons power but may not actively be studying the correlation between moon movement and human behavior. This app will guide them in moon-mapping, or planning certain activities based on where the moon is at and therefore how strong it’s gravitational pull is.
 
-With the scientific moon phase information and the loose study of correlating human behavior - we can begin to plan our lives in accordance with the moons rotation. Following the moons behavior to plan ones life is often called "moon-mapping". This app aims to use those patterns to create a task that helps a user to harness the moons power.
+For this app, we categorize where the moon is at in comparison to the earth by using 8 major phases such as full moon, waxing crescent, waning crescent, waxing gibbuous, waning gibbous, first quarter moon, third quarter moon, and new moon. During each phase, as the moons gravity begins to affect the composition within our bodies, it is best to partake in certain activities. We stuck to 9 major types of activities. These were recreational, charity, education, music, diy, cooking, social, busywork, and relaxation.  So for example, during the new moon, which is often described as a good time to start new projects and learn - the app will generate an activity within the category of education. New moon equals learning which equals an educational activity.
+
 
 How it works - APIs and Javascript:
 
@@ -16,6 +18,8 @@ When a user enters in a date, this app takes moon phase data from https://www.fa
 There are three main areas and links to those areas in the nav bar- The main page (MOONR8KER), the main user experience page where they can plan an activity (planning), and the area with saved user activities (mapped).
 
 A user can either scroll down or click "planning" in navigation to be brought to an area where they can generate an event. A user will come to this page looking for guidance on what to do during an upcoming date. They will choose a date on a calendar that they want to harness the moons power. Upon selecting a date, the phase of the moon during that time will display, along with a general description of best practices during that time, followed by a random activity.
+
+This activity automatically saves to the mapped section of the website. The mapped area functions similar to a to-do list. It holds all of the activities that the user may want to take part in. These activities will order itself by date, from closest date to farthest date. These activities can also be removed from the section with the delete button.
 
 Interface Design:
 

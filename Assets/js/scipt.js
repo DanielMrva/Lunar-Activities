@@ -145,30 +145,42 @@ fetch(moonPhaseUrl)
 
         const moonPhaseText = document.getElementById('p-planning');
 
+        const moonIcon = document.getElementById('moon-icons');
+        console.log(moonIcon);
+
+
         // Renders text onto page about the phase and the activity
         if (chosenPhaseName == 'Dark Moon') {
             moonPhaseText.innerText = "The new moon, or the dark moon, is the begining of a new cycle. Breathe fresh air into old projects or start to plot out a new venture. As you begin this cycle, you should focus on furthering your self development through education. Gather as much new information as possible so that you have that knowledge accessible to put to work in the coming phases.";
+            moonIcon.src = "Assets/css/images/new-moon.png";
         
         } else if (chosenPhaseName == 'Waxing Crescent') {
             moonPhaseText.innerText = "The waxing crescent follows the new moon. It is the second phase of the cycle. As such, you should honor this phase with inner growth through education and list making. Now is the time to catch up on all those small tasks and to get organized. You will be able to retain more information during this time and it is important to focus primarily on yourself.";
+            moonIcon.src = "Assets/css/images/waxing-crescent.png";
         
         } else if (chosenPhaseName == '1st Quarter') {
             moonPhaseText.innerText = "Arriving after the waxing crescent, the first Quarter moon is the third phase. Previous phases have focused on inner growth, while this stage allows you to start acting on your new found knowledge. It's time to partake in recreational, productive, and social events. Take the knowledge you have learned and inject it into different activities.";
+            moonIcon.src = "Assets/css/images/first-quarter.png";
         
         } else if (chosenPhaseName == 'Waxing Gibbous') {
             moonPhaseText.innerText = "Piggybacking off of the first quarter moon, the waxing gibbous is the fourth phase. You should be growing more social during this time as soon you will enter the Full moon - a time where relationships will be tested. Partake in activities that are not only enjoyable, but can also add to your skill set. Cooking projects are a good example of this.";
+            moonIcon.src = "Assets/css/images/waxing-gibbous.png";
 
         } else if (chosenPhaseName == 'Full Moon') {
             moonPhaseText.innerText = "The moon phase that most people are familiar with. The gravitational pull on you is at an all time high- giving more power to your intuition. During this time it is important to be more social - relationships and friendships will be tested during this time. Connect with nature through music or partake in something that is more relaxing.";
+            moonIcon.src = "Assets/css/images/full-moon.png";
 
         } else if (chosenPhaseName == 'Waning Gibbous') {
             moonPhaseText.innerText = "Following the full moon, the waning gibbous begins the time of winding down. The first phases of the moon focus on inner development, then more on social aspects, and now is the time to give outwardly. Charity and relaxation based activities help to balance you. Meditate on what has brought you to this point through the facilitation of music.";
+            moonIcon.src = "Assets/css/images/waning-gibbous.png";
 
         } else if (chosenPhaseName == '3rd Quarter') {
             moonPhaseText.innerText = "The second to last phase, the last quarter phase is almost like a spring cleaning. This phase follows the waning gibbous, so gratitude through chartiy like activities are encouraged. However, the best ways to harness the moons pull during this time is to partake in those little to-dos as you get yourself organized once again.";
+            moonIcon.src = "Assets/css/images/third-quarter.png";
 
         } else if (chosenPhaseName == 'Waning Crescent') {
             moonPhaseText.innerText = "The final phase of the 8 general moon phases. Instead of pushing ourselves to the limit, we should rest and reflect. Partake in activities that are low stress. Allow yourself to zone out a little. You are coming to an end on this months moon cycle and you should relax before the next new moon thrusts you into a new opportunity for expansion.";
+            moonIcon.src = "Assets/css/images/waning-crescent.png";
 
         };
 
